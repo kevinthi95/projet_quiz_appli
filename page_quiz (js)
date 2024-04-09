@@ -1,0 +1,57 @@
+const quizData = [
+    {
+        question: "Quel est le capitale de la France?",
+        options: ["Paris", "Londres", "Berlin", "Madrid"],
+        answer: "Paris"
+    },
+    {
+        question: "Quelle est la couleur du ciel?",
+        options: ["Bleu", "Vert", "Rouge", "Jaune"],
+        answer: "Bleu"
+    },
+    // Ajoutez plus de questions ici
+];
+
+const quizContainer = document.getElementById('quiz-container');
+const questionElement = document.getElementById('question');
+const optionsElement = document.getElementById('options');
+const resultContainer = document.getElementById('result-container');
+
+let currentQuestion = 0;
+let score = 0;
+
+function loadQuiz() {
+    const currentQuizData = quizData[currentQuestion];
+    questionElement.innerText = currentQuizData.question;
+    optionsElement.innerHTML = '';
+    currentQuizData.options.forEach(option => {
+        const button = document.createElement('button');
+        button.innerText = option;
+        button.classList.add('option-btn');
+        button.addEventListener('click', () => checkAnswer(option));
+        optionsElement.appendChild(button);
+    });
+}
+
+function checkAnswer(answer) {
+    const currentQuizData = quizData[currentQuestion];
+    if (answer === currentQuizData.answer) {
+        score++;
+        resultContainer.innerText = 'Bonne réponse!';
+    } else {
+        resultContainer.innerText = 'Mauvaise réponse!';
+    }
+    currentQuestion++;
+    if (currentQuestion < quizData.length) {
+        loadQuiz();
+    } else {
+        showResults();
+    }
+}
+
+function showResults() {
+    quizContainer.style.display = 'none';
+    resultContainer.innerHTML = `<h2>Votre score est ${score}/${quizData.length}</h2>`;
+}
+
+loadQuiz();
