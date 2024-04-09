@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="projetinfo1.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Mon Quiz JavaScript</h1>
+        <div id="question"></div>
+        <div id="options"></div>
+    </div>
+    <div id="result-container"></div>
+    <script src="projetinfo1.js"></script>
+    <a href="projetinfo1page_principal.html">Retour à la page principale</a>
+</body>
+</html>
