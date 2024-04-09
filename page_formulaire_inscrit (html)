@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <link rel="stylesheet" type="text/css" href="projetinfo1formulaireinscrit.css">
+</head>
+<body>
+    <h1>Connexion à votre compte</h1>
+    <form id="loginForm" action="verification.php" method="post">
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Se connecter"> <br><br>
+        <a href="projetinfo1formulaire.html">Créer un nouveau compte</a>
+    </form>
+    <div id="message"></div>
+
+    <script src="projetinfo1formulaireinscrit.js"></script>
+</body>
+</html>
