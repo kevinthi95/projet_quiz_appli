@@ -1,0 +1,120 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #DC1A28; /* Rouge Ferrari */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.content {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.History {
+    width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.History h2 {
+    color: #DC1A30;
+}
+
+.History p {
+    color: #555;
+}
+
+.Champion, .circuit, .innovation {
+    width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.Champion h2, .circuit h2, .innovation h2 {
+    color: #DC1A30;
+}
+
+.Champion p, .circuit p, .innovation p {
+    color: #555;
+}
+
+.pilots-section, .circuits-section {
+    width: 45%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pilots-section h2, .circuits-section h2 {
+    color: #DC1A28; /* Rouge Ferrari */
+}
+
+.information-section {
+    width: 90%;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.information-section h2 {
+    color: #DC1A30; /* Rouge Ferrari */
+}
+
+.information-section p {
+    color: #333;
+}
+
+
+/* Animation pour les sections */
+.pilots-section, .circuits-section, .information-section, .History, .Champion, .circuit, .innovation {
+    animation-name: fadeInUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
