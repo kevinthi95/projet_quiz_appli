@@ -5,7 +5,22 @@ body {
     
 }
 
+#legend-container {
+    float: top left;
+    width: 20%;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.legend-item {
+    margin-bottom: 10px;
+}
+
 #quiz-container {
+    position: relative; /* Positionnement relatif pour permettre le positionnement absolu du rond de difficulté */
     background-color: rgba(255, 255, 255, 0.8); /* Ajoutez une couleur de fond semi-transparente */
     padding: 20px;
     border-radius: 10px;
@@ -13,6 +28,30 @@ body {
     max-width: 600px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Ajoutez une ombre pour un effet 3D */
 }
+
+.difficulty-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    top: 10px; /* Déplace le rond de difficulté de 10px à partir du haut du conteneur body */
+    right: 10px; /* Déplace le rond de difficulté de 10px à partir de la droite du conteneur body */
+}
+
+
+.difficulty-facile {
+    background-color: green;
+}
+
+.difficulty-intermédiaire {
+    background-color: yellow;
+}
+
+.difficulty-difficile {
+    background-color: red;
+}
+
 
 h1 {
     color: #333; /* Couleur du texte */
@@ -60,4 +99,12 @@ h1 {
 #result-container {
     text-align: center;
     margin-top: 20px;
+}
+
+.center-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff; /* Couleur du lien */
 }
