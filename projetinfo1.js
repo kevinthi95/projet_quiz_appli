@@ -2,7 +2,7 @@ const quizData = [
     {
           question: "Qui est le double champion du monde en titre de la F1 ?",
           options: ["Lewis Hamilton", "Sebastian Vettel", "Max Verstappen", "Fernando Alonso"],
-          answer: "Lewis Hamilton",
+          answer: "Fernando Alonso",
           difficulty: "facile"
         },
         {
@@ -302,9 +302,11 @@ const quizData = [
 ];
 
 const quizContainer = document.getElementById('quiz-container');
+const difficultyElement = document.getElementById('difficulty'); // Sélectionnez la div pour afficher la difficulté
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const resultContainer = document.getElementById('result-container');
+
 
 let currentQuestion = 0;
 let score = 0;
@@ -320,6 +322,20 @@ function loadQuiz() {
         button.addEventListener('click', () => checkAnswer(option));
         optionsElement.appendChild(button);
     });
+    difficultyElement.className = 'difficulty-circle';
+    switch (currentQuizData.difficulty) {
+        case 'facile':
+            difficultyElement.classList.add('difficulty-facile');
+            break;
+        case 'intermédiaire':
+            difficultyElement.classList.add('difficulty-intermédiaire');
+            break;
+        case 'difficile':
+            difficultyElement.classList.add('difficulty-difficile');
+            break;
+        default:
+            break;
+    }
 }
 
 function checkAnswer(answer) {
