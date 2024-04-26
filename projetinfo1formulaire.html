@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de saisie des informations</title>
+    <link rel="stylesheet" type="text/css" href="projetinfo1formulaire.css">
+</head>
+<body>
+    <h1>Formulaire de saisie des informations</h1>
+    <form action="page_formulaire_inscrit.php" method="post">
+                <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" minlength="1" maxlength="30" required placeholder="Entrez votre nom"><br><br>
+            
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required placeholder="Entrez votre prénom"><br><br>
+
+        <label for="email">Adresse e-mail :</label>
+        <input type="email" id="email" name="email" required placeholder="email@gmail.com"><br><br>
+
+        <label for="password">Mot de passe :</label>
+        <input type="password" id="password" name="password" required placeholder="mot de passe"><br><br>
+
+        <label for="age">Âge :</label>
+        <input type="number" id="age" name="age" min="0" required placeholder="18"><br><br>
+
+        <label for="pays">Pays :</label>
+        <select id="pays" name="pays" required>
+                <option value="">Sélectionnez votre pays</option>
+                <option value="france">🇫🇷 France</option>
+                <option value="belgique">🇧🇪 Belgique</option>
+                <option value="suisse">🇨🇭 Suisse</option>
+                <option value="espagne">🇪🇸 Espagne</option>
+                <option value="allemagne">🇩🇪 Allemagne</option>
+                <option value="royaume-uni">🇬🇧 Royaume-Uni</option>
+                <option value="italie">🇮🇹 Italie</option>
+                <option value="monaco">🇲🇨 Monaco</option>
+                <option value="luxembourg">🇱🇺 Luxembourg</option>
+                <option value="portugal">🇵🇹 Portugal</option>
+                <option value="maroc">🇲🇦 Maroc</option>
+                <option value="tunisie">🇹🇳 Tunisie</option>
+            </select>            
+        </select><br><br>
+
+        <label for="passions">Passions :</label><br>
+<input type="text" id="passions" name="passions" placeholder="Entrez vos passions séparées par des virgules"><br><br>
+        
+        <br><br>
+       
+        <input type="submit" value="Soumettre"> <br><br>
+        <p>Cliquez sur le lien ci-dessous si vous êtes déjà inscrit :</p>
+        <a href="projetinfo1formulaireinscrit.html">Inscrit</a>
+        <br><br>
+        <a href="projetinfo1page_principal.html">Retour à la page principale</a>
+
+    </form>
+</body>
+</html>
