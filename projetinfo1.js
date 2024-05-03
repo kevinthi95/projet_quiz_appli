@@ -331,7 +331,13 @@ function startQuiz() {
 }
 
 function loadQuiz() {
-    const currentQuizData = quizData[currentQuestion];
+    // Sélectionnez une question aléatoire
+    const randomIndex = Math.floor(Math.random() * quizData.length);
+    const currentQuizData = quizData[randomIndex];
+    
+    // Supprimez la question sélectionnée de la liste pour éviter de la poser à nouveau
+    quizData.splice(randomIndex, 1);
+    
     questionElement.innerText = currentQuizData.question;
     optionsElement.innerHTML = '';
     currentQuizData.options.forEach(option => {
@@ -357,6 +363,7 @@ function loadQuiz() {
     }
     updateRemainingQuestions();
 }
+
 
 function updateRemainingQuestions() {
     const remainingQuestions = quizData.length - currentQuestion - 1;
