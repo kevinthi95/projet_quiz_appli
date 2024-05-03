@@ -306,10 +306,29 @@ const difficultyElement = document.getElementById('difficulty'); // Sélectionne
 const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const resultContainer = document.getElementById('result-container');
+const remainingQuestionsElement = document.getElementById('remaining-questions');
 
 
 let currentQuestion = 0;
 let score = 0;
+let startTime = 0; // Ajoutez une variable pour enregistrer le temps de début
+let pausedTime = 0; // Ajoutez une variable pour enregistrer le temps écoulé lorsque le quiz est en pause
+let timerInterval;
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+function startQuiz() {
+    shuffleArray(quizData);
+    loadQuiz();
+    startTime = Date.now(); // Enregistrez le temps de début
+    startTimer();
+}
 
 function loadQuiz() {
     const currentQuizData = quizData[currentQuestion];
@@ -336,9 +355,16 @@ function loadQuiz() {
         default:
             break;
     }
+    updateRemainingQuestions();
+}
+
+function updateRemainingQuestions() {
+    const remainingQuestions = quizData.length - currentQuestion - 1;
+    remainingQuestionsElement.innerText = remainingQuestions;
 }
 
 function checkAnswer(answer) {
+    clearInterval(timerInterval);
     const currentQuizData = quizData[currentQuestion];
     if (answer === currentQuizData.answer) {
         score++;
@@ -349,14 +375,44 @@ function checkAnswer(answer) {
     currentQuestion++;
     if (currentQuestion < quizData.length) {
         loadQuiz();
+        startTimer(); // Redémarrez le chronomètre après avoir chargé la prochaine question
     } else {
         showResults();
     }
+    updateRemainingQuestions();
 }
 
 function showResults() {
     quizContainer.style.display = 'none';
+    const elapsedTime = Math.floor((Date.now() - startTime - pausedTime) / 1000); // Calculez le temps écoulé
+    const minutes = Math.floor(elapsedTime / 60);
+    const seconds = elapsedTime % 60;
+    const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
     resultContainer.innerHTML = `<h2>Votre score est ${score}/${quizData.length}</h2>`;
+    resultContainer.innerHTML += `<p>Temps écoulé: ${formattedTime}</p>`;
 }
 
-loadQuiz();
+function startTimer() {
+    timerInterval = setInterval(updateTimer, 1000);
+}
+
+function updateTimer() {
+    const elapsedTime = Math.floor((Date.now() - startTime - pausedTime) / 1000); // Calculez le temps écoulé
+    const minutes = Math.floor(elapsedTime / 60);
+    const seconds = elapsedTime % 60;
+    const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    document.getElementById('time').innerText = formattedTime;
+}
+
+// Gérer la pause et la reprise du chronomètre lorsque le quiz est en pause
+document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden') {
+        clearTimeout(timerTimeout); // Si la page est cachée, arrêtez le chronomètre et enregistrez le temps écoulé
+        pausedTime += Date.now() - startTime;
+    } else {
+        startTime = Date.now() - pausedTime; // Si la page est visible, enregistrez le nouveau temps de début en ajoutant le temps écoulé
+        startTimer(); // Redémarrez le chronomètre
+    }
+});
+
+document.addEventListener('DOMContentLoaded', startQuiz);
