@@ -21,12 +21,24 @@
                 window.location.href = "projetinfo1page_principal.html"; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
         }
+        function hideForm() {
+            var form = document.querySelector('form');
+            form.style.display = 'none';
+        }
     </script>
 </head>
 <body>
     <h1>Formulaire de saisie des informations</h1>
-
     <?php
+    // Vérifie si l'utilisateur est déjà enregistré
+    $file = 'utilisateurs.txt';
+    if (file_exists($file) && isset($_POST['email']) && strpos(file_get_contents($file), $_POST['email']) !== false) {
+        // Affiche le message d'inscription déjà existante
+        echo '<div id="message-container">Vous êtes déjà inscrit.</div>';
+        echo '<script>hideForm(); hideMessageAndRedirect1();</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
+        exit; // Arrête l'exécution du reste de la page
+    }
+
     // Vérifie si le formulaire a été soumis
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Récupère les données du formulaire
@@ -41,30 +53,18 @@
         // Formatte les données pour les enregistrer dans un fichier texte
         $data = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nMot de passe: $password\nÂge: $age\nPays: $pays\nPassions: $passions\n\n";
 
-        // Chemin du fichier texte où enregistrer les données
-        $file = 'utilisateurs.txt';
+        // Ouvre le fichier en mode écriture
+        $fp = fopen($file, 'a');
 
-        // Vérifie si l'utilisateur est déjà enregistré
-        if (file_exists($file) && strpos(file_get_contents($file), $email) !== false) {
-            // Affiche le message d'inscription déjà existante
-            echo '<div id="message-container">Vous êtes déjà inscrit.</div>';
-            echo '<script>hideMessageAndRedirect1();</script>'; // Appelle la fonction pour masquer le message et rediriger
-        } else {
-            // Ouvre le fichier en mode écriture
-            $fp = fopen($file, 'a');
+        // Écrit les données dans le fichier
+        fwrite($fp, $data);
 
-            // Écrit les données dans le fichier
-            fwrite($fp, $data);
+        // Ferme le fichier
+        fclose($fp);
 
-            // Ferme le fichier
-            fclose($fp);
-
-            // Affiche le message de confirmation
-            echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
-            echo '<script>hideMessageAndRedirect2();</script>'; // Appelle la fonction pour masquer le message et rediriger
-        }
-    ?>
-    <?php
+        // Affiche le message de confirmation
+        echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
+        echo '<script>hideForm(); hideMessageAndRedirect2();</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
     }
     ?>
 
@@ -114,4 +114,5 @@
     </form>
 </body>
 </html>
+
 
