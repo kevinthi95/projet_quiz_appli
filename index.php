@@ -11,19 +11,15 @@
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href = "page_formulaire_inscrit.html"; // Redirection vers la page principale
+                window.location.href = "http://localhost:8888/page_formulaire_inscrit.html"; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
         }
         function hideMessageAndRedirect2() {
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href = "projetinfo1page_principal.html"; // Redirection vers la page principale
+                window.location.href = "http://localhost:8888/projetinfo1page_principal.html"; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
-        }
-        function hideForm() {
-            var form = document.querySelector('form');
-            form.style.display = 'none';
         }
     </script>
 </head>
@@ -31,15 +27,34 @@
     <h1>Formulaire de saisie des informations</h1>
     <?php
     // Vérifie si l'utilisateur est déjà enregistré
-    $file = 'utilisateurs.txt';
-    if (file_exists($file) && isset($_POST['email']) && strpos(file_get_contents($file), $_POST['email']) !== false) {
-        // Affiche le message d'inscription déjà existante
-        echo '<div id="message-container">Vous êtes déjà inscrit.</div>';
-        echo '<script>hideForm(); hideMessageAndRedirect1();</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
-        exit; // Arrête l'exécution du reste de la page
-    }
+  // Vérifie si le formulaire a été soumis
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Récupère l'e-mail soumis dans le formulaire
+    $email = $_POST['email'];
 
-    // Vérifie si le formulaire a été soumis
+    // Vérifie si le fichier des utilisateurs existe
+    $file = 'utilisateurs.txt';
+    if (file_exists($file)) {
+        // Lit chaque ligne du fichier utilisateurs.txt
+        $lines = file($file);
+
+        // Parcourt chaque ligne
+        foreach ($lines as $line) {
+            // Sépare la ligne en colonnes en utilisant le point-virgule comme séparateur
+            $columns = explode(';', $line);
+
+            // Vérifie si la première colonne (l'adresse e-mail) correspond à l'e-mail soumis dans le formulaire
+            if ($columns[0] === $email) {
+                // Affiche le message d'inscription déjà existante
+                echo '<div id="message-container">Vous êtes déjà inscrit.</div>';
+                echo '<script>hideMessageAndRedirect1()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
+                exit; // Arrête l'exécution du reste de la page
+            }
+        }
+    }
+}
+
+
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Récupère les données du formulaire
         $nom = $_POST['nom'];
@@ -49,26 +64,40 @@
         $age = $_POST['age'];
         $pays = $_POST['pays'];
         $passions = $_POST['passions'];
-
+    
+        // Générer un identifiant unique
+        $id = uniqid();
+    
         // Formatte les données pour les enregistrer dans un fichier texte
-        $data = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nMot de passe: $password\nÂge: $age\nPays: $pays\nPassions: $passions\n\n";
-
+        $data = "$email;$password;$id\n";
+    
+        // Enregistre les autres informations dans un fichier annexe
+        $annexeData = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nÂge: $age\nPays: $pays\nPassions: $passions\n\n";
+    
+        // Nom du fichier pour les autres informations
+        $annexeFile = 'donnees/$id . .txt'; // Utilise l'ID comme nom de fichier
+    
         // Ouvre le fichier en mode écriture
         $fp = fopen($file, 'a');
-
+    
         // Écrit les données dans le fichier
         fwrite($fp, $data);
-
+    
         // Ferme le fichier
         fclose($fp);
+    
+        // Enregistre les autres informations dans le fichier annexe
+        $annexeFp = fopen($annexeFile, 'w');
+        fwrite($annexeFp, $annexeData);
+        fclose($annexeFp);
 
         // Affiche le message de confirmation
         echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
-        echo '<script>hideForm(); hideMessageAndRedirect2();</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
+        echo '<script>hideMessageAndRedirect2()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
     }
     ?>
 
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" minlength="1" maxlength="30" required placeholder="Entrez votre nom"><br><br>
                 
@@ -108,11 +137,12 @@
             
             <input type="submit" value="Soumettre"> <br><br>
             <p>Cliquez sur le lien ci-dessous si vous êtes déjà inscrit :</p>
-            <a href="page_formulaire_inscrit.html">Inscrit</a>
+            <a href="http://localhost:8888/page_formulaire_inscrit.html">Inscrit</a>
             <br><br>
-            <a href="projetinfo1page_principal.html">Retour à la page principale</a>
+            <a href="http://localhost:8888/projetinfo1page_principal.html">Retour à la page principale</a>
     </form>
 </body>
 </html>
+
 
 
