@@ -79,3 +79,36 @@ p {
     text-align: center;
     color: #888;
 }
+/* Style pour le message container */
+#message-container {
+    background-color: #f8d7da; /* Couleur de fond */
+    color: #721c24; /* Couleur du texte */
+    padding: 10px 15px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    margin-bottom: 20px; /* Marge inférieure */
+}
+
+/* Style pour le message de succès */
+#message-container.success {
+    background-color: #d4edda; /* Couleur de fond pour succès */
+    color: #155724; /* Couleur du texte pour succès */
+}
+
+/* Style pour le message d'erreur */
+#message-container.error {
+    background-color: #f8d7da; /* Couleur de fond pour erreur */
+    color: #721c24; /* Couleur du texte pour erreur */
+}
+
+/* Style pour le lien */
+#message-container a {
+    color: #155724; /* Couleur du lien */
+    text-decoration: underline; /* Soulignement du lien */
+    cursor: pointer; /* Curseur au survol du lien */
+}
+
+/* Style pour le lien au survol */
+#message-container a:hover {
+    color: #0d3a13; /* Couleur du lien au survol */
+}
+
