@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -37,6 +38,6 @@
     </div>
     
     <script src="projetinfo1.js"></script>
-    <a href="http://localhost:8888/projetinfo1page_principal.html" class="center-link">Retour à la page principale</a>
+    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>"  class="center-link">Retour à la page principale</a>
 </body>
 </html>
