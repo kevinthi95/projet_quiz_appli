@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="page_avant_quiz.css"> 
 </head>
 <body>
+<?php
+// Démarrer la session
+session_start();
+
+// Vérifier si l'ID de l'utilisateur est présent dans la session
+if(isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
+} else {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: index.php");
+    exit;
+}
+?>
     <header>
         <h1>Quiz Formule 1</h1>
     </header>
@@ -21,9 +35,9 @@
                 <li><span class="difficulty-circle difficulty-difficile"></span>Difficile (3 points)</li>
             </ul>
             <p>Prenez votre temps pour répondre à chaque question et essayez d'obtenir le meilleur score possible !</p>
-            <a href="projetinfo1.html" class="styled-button">Commencer le Quiz</a>
+            <a href="http://localhost:8888/projetinfo1.php?id=<?php echo $user_id; ?>" class="styled-button">Commencer le Quiz</a>
         </section>
     </main>
-    <a href="projetinfo1page_principal.html" class="center-link">Retour à la page principale</a>
+    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" class="center-link">Retour à la page principale</a>
 </body>
 </html>
