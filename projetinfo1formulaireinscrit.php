@@ -9,7 +9,7 @@
 <body>
 <?php
 session_start(); // Démarrage de la session
-$_SESSION['user_id'] = $userId;  // Stockez l'ID de l'utilisateur après une connexion réussie
+
 // Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -35,10 +35,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     }
                     $found = true;
                 }
-                $updatedLines[] = $line;
-            } else {
-                $updatedLines[] = $line;
             }
+            $updatedLines[] = $line;
         }
 
         if ($found) {
@@ -47,6 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo 'setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id='.$redirectId.'"; }, 5000);';
             echo '</script>';
             echo '<div id="message">Connexion réussie. Redirection dans 5 secondes...</div>';
+            $_SESSION['user_id'] = $redirectId;  // Stockez l'ID de l'utilisateur après une connexion réussie
+
             exit;
         } else {
             echo '<script>';
@@ -60,6 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 <h1>Connexion à votre compte</h1>
 <form id="loginForm" method="post">
