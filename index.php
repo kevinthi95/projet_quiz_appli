@@ -11,14 +11,15 @@
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href = "http://localhost:8888/page_formulaire_inscrit.html"; // Redirection vers la page principale
+                window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
         }
         function hideMessageAndRedirect2() {
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href = "http://localhost:8888/projetinfo1page_principal.html"; // Redirection vers la page principale
+                window.location.href ="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $userId; ?>" 
+; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
         }
     </script>
@@ -26,8 +27,10 @@
 <body>
     <h1>Formulaire de saisie des informations</h1>
     <?php
-    // Vérifie si l'utilisateur est déjà enregistré
-  // Vérifie si le formulaire a été soumis
+// Démarrer la session
+session_start();
+
+// Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupère l'e-mail soumis dans le formulaire
     $email = $_POST['email'];
@@ -52,50 +55,50 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
+
+    // Récupère les autres données du formulaire
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $password = $_POST['password'];
+    $age = $_POST['age'];
+    $pays = $_POST['pays'];
+    $passions = $_POST['passions'];
+
+    // Générer un identifiant unique
+    $id = uniqid();
+
+    // Formatte les données pour les enregistrer dans un fichier texte
+    $data = "$email;$password;$id\n";
+
+    // Enregistre les autres informations dans un fichier annexe
+    $annexeData = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nÂge: $age\nPays: $pays\nPassions: $passions\n\n";
+
+    // Nom du fichier pour les autres informations
+    $annexeFile = 'donnees/' . $id . '.txt'; // Utilise l'ID comme nom de fichier
+
+    // Ouvre le fichier en mode écriture
+    $fp = fopen($file, 'a');
+
+    // Écrit les données dans le fichier
+    fwrite($fp, $data);
+
+    // Ferme le fichier
+    fclose($fp);
+
+    // Enregistre les autres informations dans le fichier annexe
+    $annexeFp = fopen($annexeFile, 'w');
+    fwrite($annexeFp, $annexeData);
+    fclose($annexeFp);
+
+    // Stocker l'ID de l'utilisateur dans une variable de session
+    $_SESSION['user_id'] = $user_id; // $user_id est l'ID généré pour l'utilisateur 
+
+    // Affiche le message de confirmation
+    echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
+    echo '<script>hideMessageAndRedirect2()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
 }
+?>
 
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Récupère les données du formulaire
-        $nom = $_POST['nom'];
-        $prenom = $_POST['prenom'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $age = $_POST['age'];
-        $pays = $_POST['pays'];
-        $passions = $_POST['passions'];
-    
-        // Générer un identifiant unique
-        $id = uniqid();
-    
-        // Formatte les données pour les enregistrer dans un fichier texte
-        $data = "$email;$password;$id\n";
-    
-        // Enregistre les autres informations dans un fichier annexe
-        $annexeData = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nÂge: $age\nPays: $pays\nPassions: $passions\n\n";
-    
-        // Nom du fichier pour les autres informations
-        $annexeFile = 'donnees/$id . .txt'; // Utilise l'ID comme nom de fichier
-    
-        // Ouvre le fichier en mode écriture
-        $fp = fopen($file, 'a');
-    
-        // Écrit les données dans le fichier
-        fwrite($fp, $data);
-    
-        // Ferme le fichier
-        fclose($fp);
-    
-        // Enregistre les autres informations dans le fichier annexe
-        $annexeFp = fopen($annexeFile, 'w');
-        fwrite($annexeFp, $annexeData);
-        fclose($annexeFp);
-
-        // Affiche le message de confirmation
-        echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
-        echo '<script>hideMessageAndRedirect2()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
-    }
-    ?>
 
     <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label for="nom">Nom :</label>
@@ -137,12 +140,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <input type="submit" value="Soumettre"> <br><br>
             <p>Cliquez sur le lien ci-dessous si vous êtes déjà inscrit :</p>
-            <a href="http://localhost:8888/page_formulaire_inscrit.html">Inscrit</a>
-            <br><br>
-            <a href="http://localhost:8888/projetinfo1page_principal.html">Retour à la page principale</a>
+            <a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Inscrit</a>
     </form>
 </body>
 </html>
-
-
 
