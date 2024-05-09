@@ -18,7 +18,7 @@
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href ="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $userId; ?>" 
+                window.location.href ="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" 
 ; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
         }
@@ -65,16 +65,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passions = $_POST['passions'];
 
     // Générer un identifiant unique
-    $id = uniqid();
+    $user_id = uniqid(); // Définition de $user_id ici
 
     // Formatte les données pour les enregistrer dans un fichier texte
-    $data = "$email;$password;$id\n";
+    $data = "$email;$password;$user_id\n";
 
     // Enregistre les autres informations dans un fichier annexe
     $annexeData = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nÂge: $age\nPays: $pays\nPassions: $passions\n\n";
 
     // Nom du fichier pour les autres informations
-    $annexeFile = 'donnees/' . $id . '.txt'; // Utilise l'ID comme nom de fichier
+    $annexeFile = 'donnees/' . $user_id . '.txt'; // Utilise $user_id comme nom de fichier
 
     // Ouvre le fichier en mode écriture
     $fp = fopen($file, 'a');
@@ -100,10 +100,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
+
     <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <label for="nom">Nom :</label>
             <input type="text" id="nom" name="nom" minlength="1" maxlength="30" required placeholder="Entrez votre nom"><br><br>
-                
+
             <label for="prenom">Prénom :</label>
             <input type="text" id="prenom" name="prenom" required placeholder="Entrez votre prénom"><br><br>
 
@@ -144,4 +145,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
 </body>
 </html>
-
