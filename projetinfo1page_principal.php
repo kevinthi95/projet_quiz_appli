@@ -14,7 +14,6 @@ session_start();
 // Vérifier si l'ID de l'utilisateur est présent dans la session
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    var_dump($user_id);//test
     // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
 } else {
     // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
@@ -26,9 +25,8 @@ if(isset($_SESSION['user_id'])) {
     <h1>Présentation de la Formule 1</h1>
     <nav>
         <ul>
-       
-
-            <li><a href="http://localhost:8888/page_avant_quiz.php?id=<?php echo $user_id; ?>" >Quiz</a></li>
+    
+           <li><a href="http://localhost:8888/page_avant_quiz.php?id=<?php echo $user_id; ?>" >Quiz</a></li>
             <li><a href= "http://localhost:8888/index.php?id=<?php echo $user_id; ?>" >Formulaire</a></li>
             <li><a href= "http://localhost:8888/classement.php?id=<?php echo $user_id; ?>" >Classement</a></li>
             <li><a href= "http://localhost:8888/profil.php?id=<?php echo $user_id; ?>" >Profil</a></li>
