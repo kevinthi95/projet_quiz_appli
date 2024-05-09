@@ -1,0 +1,128 @@
+/* Reset CSS pour éviter les inconsistances entre les navigateurs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Polices plus modernes */
+    background-color: #f0f0f0;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+header {
+    background: rgb(24, 119, 221); /* Bleu plus vibrant */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav ul {
+    list-style: none;
+    text-align: center;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    background: #0056b3;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Transition douce pour l'effet hover */
+}
+
+nav ul li a:hover,
+nav ul li a:focus { /* Ajout du focus pour l'accessibilité */
+    background: #004494;
+    outline: none;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border-radius: 8px; /* Coins arrondis */
+}
+
+h1 {
+    color: #333; /* Harmonisation avec la couleur de l'en-tête */
+    margin-bottom: 20px;
+}
+
+pre {
+    background-color: #fff;
+    padding: 15px;
+    border-left: 5px solid #999BFF;
+    overflow-x: auto; /* Ajout d'un défilement horizontal si nécessaire */
+    white-space: pre-wrap; /* Casse naturelle des mots */
+    word-wrap: break-word;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ddd;
+}
+
+.blur-text {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5); /* Flou moins intense */
+}
+
+.update-form {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.update-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.update-form label {
+    margin-bottom: 10px;
+}
+
+
+.update-form input[type="password"],
+.update-form button {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.update-form button {
+    background-color: #28a745; /* Vert plus attrayant */
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+.update-form button:hover {
+    background-color: #218838; /* Assombrissement lors du survol */
+}
+
+.blur-text {
+    color: transparent;
+    text-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
