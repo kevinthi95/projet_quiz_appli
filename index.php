@@ -14,16 +14,17 @@
                 window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; // Redirection vers la page principale
             }, 5000); // 5000 ms = 5 secondes
         }
-        function hideMessageAndRedirect2() {
+
+        function hideMessageAndRedirect2(userId) {//pas la bonne methode je pense
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href ="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" 
-; // Redirection vers la page principale
+                window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id=" + userId; // Redirection vers la page principale avec l'ID utilisateur
             }, 5000); // 5000 ms = 5 secondes
         }
     </script>
 </head>
+
 <body>
     <h1>Formulaire de saisie des informations</h1>
     <?php
@@ -95,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Affiche le message de confirmation
     echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
-    echo '<script>hideMessageAndRedirect2()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
+    echo '<script>hideMessageAndRedirect2("' . $user_id . '")</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
 }
 ?>
 
@@ -141,7 +142,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <input type="submit" value="Soumettre"> <br><br>
             <p>Cliquez sur le lien ci-dessous si vous êtes déjà inscrit :</p>
-            <a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Inscrit</a>
-    </form>
+            <a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Inscrit</a></br>
+            <a href="http://localhost:8888/projetinfo1page_principal.php">Accéder en tant que visiteur</a>
+            <form>
+    </for>
 </body>
 </html>
+
