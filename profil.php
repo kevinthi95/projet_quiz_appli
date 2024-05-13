@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
             $columns = explode(';', $line);
 
             // Vérifier si l'ID de l'utilisateur correspond à celui de la session
-            if ($columns[2] === $user_id) {
+            if (trim($columns[2]) === trim($user_id)) {
                 // Récupérer le mot de passe actuel de l'utilisateur dans le fichier
                 $stored_password = trim($columns[1]);
                 echo "Mot de passe soumis : $current_password<br>";
@@ -76,14 +76,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
 
 
                 // Vérifier si le mot de passe soumis correspond au mot de passe stocké dans le fichier
-                if (password_verify($current_password, $stored_password)) {
+                if ($current_password === $stored_password) {
                     // Vérifier si les nouveaux mots de passe correspondent
                     if ($new_password === $confirm_password) {
-                        // Hasher le nouveau mot de passe
-                        $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
-
-                        // Mettre à jour le mot de passe dans le fichier
-                        $line = str_replace($stored_password, $hashed_password, $line);
+                           // Mettre à jour le mot de passe dans le fichier
+                        $line = str_replace($stored_password, $new_password, $line);
                         file_put_contents($file, implode('', $lines));
 
                         // Afficher un message de succès
@@ -106,3 +103,42 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
     }
 }
 ?>
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil de l'utilisateur</title>
+    <link rel="stylesheet" href="profil.css">
+</head>
+<body>
+    <header>
+        <h1>Profil de l'utilisateur</h1>
+    </header>
+    <div class="container">
+        <pre><?php echo htmlspecialchars($userData); ?></pre>
+    </div>
+    <div class="update-form">
+        <h2>Modifier votre mot de passe</h2>
+        <form method="post">
+            <label for="current-password">Mot de passe actuel:</label>
+            <input type="password" id="current-password" name="current_password" required>
+            <label for="new-password">Nouveau mot de passe:</label>
+            <input type="password" id="new-password" name="new_password" required>
+            <label for="confirm-password">Confirmer le nouveau mot de passe:</label>
+            <input type="password" id="confirm-password" name="confirm_password" required>
+            <button type="submit">Mettre à jour</button>
+        </form>
+        <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+    </div>
+    <div class="footer">
+        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
+    </div>
+    echo "Mot de passe soumis : $current_password<br>";
+    echo "Mot de passe extrait du fichier : " . trim($matches[1]) . "<br>";
+</body>
+</html>
+
+
