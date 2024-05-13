@@ -26,13 +26,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $columns = explode(';', $line);
             if (trim($columns[0]) === $email) {
                 if (trim($columns[1]) === $password) {
-                    // Vérifie s'il y a déjà un ID existant
-                    if (isset($columns[2]) && trim($columns[2]) !== '') {
-                        $redirectId = trim($columns[2]);  // Utilise l'ID existant
-                    } else {
-                        $redirectId = uniqid();  // Génère un nouvel ID si nécessaire
-                        $line = rtrim($line) . ';' . $redirectId . PHP_EOL;
-                    }
+                    // Génère un nouvel ID à chaque connexion
+                    $redirectId = uniqid();  
+                    $columns[2] = $redirectId; // Remplace l'ancien ID par le nouveau
+                    $line = implode(';', $columns) . PHP_EOL; // Reconstruit la ligne
                     $found = true;
                 }
             }
@@ -60,6 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
+
 
 
 <h1>Connexion à votre compte</h1>
