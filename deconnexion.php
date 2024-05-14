@@ -7,7 +7,7 @@ if (isset($_SESSION['user_id'])) {
 }
 
 // Vous pouvez également vouloir détruire toute la session si vous n'utilisez pas d'autres variables de session
-// session_destroy(); a voir 
+session_destroy(); 
 
 // Redirection vers la page de connexion ou la page d'accueil
 header('Location: http://localhost:8888/index.php');
