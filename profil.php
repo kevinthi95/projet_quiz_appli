@@ -17,7 +17,7 @@ function formatPasswordForDisplay($password) {
 }
 
 $user_id = $_SESSION['user_id'];
-echo"$user_id";
+
 $file = 'utilisateurs.txt'; // Chemin vers le fichier des utilisateurs
 // Vérifie si le fichier des utilisateurs existe
 if (file_exists($file)) {
@@ -71,8 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
             if (trim($columns[2]) === trim($user_id)) {
                 // Récupérer le mot de passe actuel de l'utilisateur dans le fichier
                 $stored_password = trim($columns[1]);
-                echo "Mot de passe soumis : $current_password<br>";
-                echo "Mot de passe extrait du fichier : " . $stored_password  . "<br>";
+
 
 
                 // Vérifier si le mot de passe soumis correspond au mot de passe stocké dans le fichier
@@ -136,9 +135,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
     <div class="footer">
         <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
     </div>
-    echo "Mot de passe soumis : $current_password<br>";
-    echo "Mot de passe extrait du fichier : " . trim($matches[1]) . "<br>";
 </body>
 </html>
-
 
