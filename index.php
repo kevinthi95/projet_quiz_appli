@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $data = "$email;$password;$user_id\n";
 
     // Enregistre les autres informations dans un fichier annexe
-    $annexeData = "Nom: $nom\nPrénom: $prenom\nAdresse e-mail: $email\nÂge: $age\nPays: $pays\nPassions: $passions\nAccès:oui\n";
+    $annexeData = "Nom:$nom\nPrénom:$prenom\nAdresse e-mail:$email\nÂge:$age\nPays:$pays\nPassions: $passions\nAccès:oui\n";
 
     // Nom du fichier pour les autres informations
     $annexeFile = 'donnees/' . $email . '.txt'; // Utilise $user_id comme nom de fichier
@@ -148,5 +148,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </for>
 </body>
 </html>
-
 
