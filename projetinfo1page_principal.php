@@ -31,8 +31,8 @@ if(isset($_SESSION['user_id'])) {
             <li><a href= "http://localhost:8888/classement.php?id=<?php echo $user_id; ?>" >Classement</a></li>
             <li><a href= "http://localhost:8888/profil.php?id=<?php echo $user_id; ?>" >Profil</a></li>
             <li><a href= "http://localhost:8888/deconnexion.php?id=$<?php echo $user_id; ?>">Se déconnecter</a></li>
-            <li><a href="http://localhost:8888/messagerie.php?id=<?php echo $user_id; ?>">Messagerie</a></li>
             <li><a href="http://localhost:8888/administrateur.php?id=<?php echo $user_id; ?>">Admin</a></li>
+            <li><a href="http://localhost:8888/page_avant_abonnement.php?id=<?php echo $user_id; ?>">Abonnement</a></li>
         </ul>
     </nav>
 </header>
@@ -382,4 +382,5 @@ if(isset($_SESSION['user_id'])) {
         <script src="projetinfo1page_principal.js"></script>
 </body>
 </html>
+
 
