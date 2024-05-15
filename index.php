@@ -57,6 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+
+
     // Récupère les autres données du formulaire
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -76,6 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Nom du fichier pour les autres informations
     $annexeFile = 'donnees/' . $email . '.txt'; // Utilise $user_id comme nom de fichier
+    $messagesFile = 'message/' . $email . '.txt';
 
     // Ouvre le fichier en mode écriture
     $fp = fopen($file, 'a');
@@ -85,6 +88,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Ferme le fichier
     fclose($fp);
+
+    // Crée le fichier email.txt s
+    $messagesFp = fopen($messagesFile, 'w');
+    fclose($messagesFp);
+
 
     // Enregistre les autres informations dans le fichier annexe
     $annexeFp = fopen($annexeFile, 'w');
@@ -148,4 +156,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </for>
 </body>
 </html>
+
 
