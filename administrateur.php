@@ -98,6 +98,8 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
         <input type="password" name="code" id="code" required>
         <button type="submit">Valider</button>
     </form>
+    </br>
+        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
 </div>
 </body>
 </html>
@@ -160,11 +162,13 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
         </form>
         </br>
     </div>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
-    </div>
     <a href="http://localhost:8888/adminmess.php?id=<?php echo $user_id; ?>">messagerie</a>
+    </div>
+    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
 </div>
 </body>
 </html>
+
+
 
 
