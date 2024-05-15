@@ -25,10 +25,9 @@ if(isset($_SESSION['user_id'])) {
         <h1>Informations sur la Formule 1</h1>
         <nav>
             <ul>
-                <li><a href="index.php">Accueil</a></li>
-                <li><a href="carte_abonne.php">Carte !</a></li>
-                </br>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
+                <li> <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Accueil</a></li>
+                <li><a href="carte_abonne.php?id=<?php echo $user_id; ?>">Carte </a></li>
+    
             </ul>
         </nav>
     </header>
@@ -53,6 +52,8 @@ if(isset($_SESSION['user_id'])) {
                 <h3>Guides et Analyses</h3>
                 <p>Accédez à des guides détaillés et à des analyses approfondies des courses, des équipes et des pilotes.</p>
             </div>
+            </br>
+  
         </section>
     </main>
 
@@ -61,4 +62,5 @@ if(isset($_SESSION['user_id'])) {
     </footer>
 </body>
 </html>
+
 
