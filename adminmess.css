@@ -1,0 +1,55 @@
+/* Styles de base pour la page */
+body {
+    font-family: 'Arial', sans-serif; /* Police plus lisible */
+    background-color: white; /* Fond blanc */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Styles pour les titres */
+h1, h2 {
+    color: red; /* Titres en rouge */
+}
+
+/* Styles pour l'encadré des messages */
+ul {
+    border: 1px solid #ccc; /* Bordure grise légère */
+    padding: 10px;
+    list-style-type: none; /* Enlève les puces de liste */
+    background-color: #f9f9f9; /* Fond légèrement gris pour les messages */
+    margin-top: 20px; /* Espacement au-dessus de la liste */
+}
+
+li {
+    margin-bottom: 10px; /* Espacement entre les messages */
+    padding: 10px;
+    background-color: #ffffff; /* Fond blanc pour chaque message */
+    border: 1px solid #ddd; /* Légère bordure pour chaque message */
+}
+
+/* Styles pour le formulaire */
+form {
+    margin-top: 20px;
+}
+
+select, textarea, input[type="submit"] {
+    padding: 10px;
+    margin-top: 5px;
+    width: 100%; /* Largeur complète pour faciliter la saisie */
+    box-sizing: border-box; /* La largeur inclut padding et border */
+}
+
+/* Bouton de retour */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: #0056b3;
+}
