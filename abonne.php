@@ -7,13 +7,28 @@
     <link rel="stylesheet" href="abonne.css">
 </head>
 <body>
+<?php
+// Démarrer la session
+session_start();
+
+// Vérifier si l'ID de l'utilisateur est présent dans la session
+if(isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
+} else {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: index.php");
+    exit;
+}
+?>
     <header>
         <h1>Informations sur la Formule 1</h1>
         <nav>
             <ul>
                 <li><a href="index.php">Accueil</a></li>
-                <li><a href="quiz.php">Quiz</a></li>
-                <li><a href="abonnements.php">Abonnements</a></li>
+                <li><a href="carte_abonne.php">Carte !</a></li>
+                </br>
+    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
             </ul>
         </nav>
     </header>
@@ -46,3 +61,4 @@
     </footer>
 </body>
 </html>
+
