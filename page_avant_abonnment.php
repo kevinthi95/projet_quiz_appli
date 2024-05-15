@@ -1,6 +1,16 @@
 <?php
 session_start(); // Démarre la session
 
+// Vérifier si l'ID de l'utilisateur est présent dans la session
+if(isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
+} else {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: index.php");
+    exit;
+}
+
 // Vérifie si le code d'abonnement a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     $code = $_POST['code'];
@@ -57,3 +67,4 @@ if (isset($_SESSION['abonne']) && $_SESSION['abonne'] === true) {
     exit;
 }
 ?>
+
