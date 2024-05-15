@@ -1,0 +1,76 @@
+/* Styles généraux pour la page */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Utilisation d'une police moderne et lisible */
+    background-color: #f0f0f0; /* Couleur de fond subtile pour la page */
+    margin: 0;
+    padding: 20px;
+    color: #333; /* Couleur du texte pour un bon contraste */
+}
+
+/* Styles pour les titres */
+h1 {
+    color: #d32f2f; /* Utilisation d'une couleur rouge pour attirer l'attention */
+    font-size: 24px; /* Taille de la police pour le titre principal */
+}
+
+h2 {
+    color: #d32f2f; /* Même couleur rouge pour le sous-titre */
+    margin-top: 30px; /* Espacement pour séparer les sections */
+    font-size: 20px;
+}
+
+/* Styles pour le formulaire d'envoi de message */
+form {
+    background: white; /* Fond blanc pour le formulaire pour le distinguer */
+    padding: 15px;
+    border-radius: 8px; /* Bords arrondis pour adoucir les contours */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre subtile pour un effet de profondeur */
+}
+
+textarea {
+    width: 100%; /* Largeur complète du formulaire pour maximiser l'espace de saisie */
+    height: 100px; /* Hauteur fixe pour le champ de texte */
+    margin-top: 10px; /* Espacement après le texte */
+    padding: 10px; /* Padding interne pour le confort de saisie */
+    border: 1px solid #ccc; /* Bordure discrète */
+    border-radius: 4px; /* Bords légèrement arrondis */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Vert pour encourager les actions positives */
+    color: white; /* Texte blanc pour le contraste */
+    border: none; /* Aucune bordure pour un look épuré */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px; /* Arrondissement des coins du bouton */
+    cursor: pointer; /* Indique que le bouton est cliquable */
+    margin-top: 10px; /* Espacement au-dessus du bouton */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Un vert légèrement plus foncé pour l'effet hover */
+}
+
+/* Styles pour l'affichage des messages */
+.message {
+    background: white; /* Fond blanc pour ressortir sur le fond général */
+    padding: 10px;
+    margin-top: 10px; /* Espacement entre les messages */
+    border-radius: 4px; /* Bords arrondis pour les messages */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Ombre pour donner un effet de relief */
+}
+
+/* Style pour le lien de retour à la page principale */
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007BFF; /* Bleu pour les actions de navigation */
+    color: white; /* Texte en blanc pour le contraste */
+    text-decoration: none; /* Pas de soulignement pour un look plus propre */
+    border-radius: 5px; /* Bords arrondis pour le bouton de retour */
+}
+
+a:hover {
+    background-color: #0056b3; /* Bleu plus foncé pour l'effet hover */
+}
