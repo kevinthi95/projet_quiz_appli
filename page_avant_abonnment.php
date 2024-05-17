@@ -1,10 +1,12 @@
 <?php
 session_start(); // Démarre la session
 
+// Initialiser une variable pour stocker un message d'erreur éventuel
+$error_message = '';
+
 // Vérifier si l'ID de l'utilisateur est présent dans la session
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
 } else {
     // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
     header("Location: index.php");
@@ -18,18 +20,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     // Vérifie si le code d'abonnement est correct
     if ($code === "1111") {
         $_SESSION['abonne'] = true; // Marque l'utilisateur comme abonné
+        header("Location: abonne.php"); // Redirige vers la page réservée aux abonnés
+        exit;
     } else {
-        echo '<div id="message">Code incorrect. Veuillez réessayer.</div>';
+        $error_message = 'Code incorrect. Veuillez réessayer.'; // Stocke le message d'erreur
     }
 }
 
-// Vérifie si l'utilisateur est abonné
-if (isset($_SESSION['abonne']) && $_SESSION['abonne'] === true) {
-    // Redirige l'utilisateur vers la page réservée aux abonnés
-    header("Location: abonne.php");
-    exit;
-} else {
-    // Affiche le formulaire de saisie du code d'abonnement
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -38,6 +35,11 @@ if (isset($_SESSION['abonne']) && $_SESSION['abonne'] === true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abonnement au Quiz</title>
     <link rel="stylesheet" href="page_avant_abonnement.css">
+    <style>
+        .error-message {
+            color: red; // Couleur rouge pour le message d'erreur
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -52,12 +54,16 @@ if (isset($_SESSION['abonne']) && $_SESSION['abonne'] === true) {
             <p>N'attendez plus, saisissez l'opportunité de devenir un expert du Quiz en vous abonnant dès maintenant !</p>
         </div>
         <form method="post" class="subscription-form">
-            <label for="code">Entrez le code d'abonnement : à obtenir avec un administrateur</label>
+            <label for="code">Entrez le code d'abonnement :</label>
             <input type="password" name="code" id="code" required>
+            <?php
+            if ($error_message !== '') {
+                echo '<div class="error-message">' . $error_message . '</div>';
+            }
+            ?>
             <button type="submit">Devenir Abonné</button>
         </form>
     </div>
-</br>
     <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
 </body>
 </html>
@@ -67,5 +73,3 @@ if (isset($_SESSION['abonne']) && $_SESSION['abonne'] === true) {
     exit;
 }
 ?>
-
-
