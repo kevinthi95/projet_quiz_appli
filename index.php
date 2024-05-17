@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $columns = explode(';', $line);
 
             // Vérifie si la première colonne (l'adresse e-mail) correspond à l'e-mail soumis dans le formulaire
-            if ($columns[0] === $email) {
+            if (strtolower(trim($columns[0])) === $email) {
                 // Affiche le message d'inscription déjà existante
                 echo '<div id="message-container">Vous êtes déjà inscrit.</div>';
                 echo '<script>hideMessageAndRedirect1()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
@@ -56,8 +56,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
     }
-
-
 
     // Récupère les autres données du formulaire
     $nom = $_POST['nom'];
@@ -93,7 +91,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $messagesFp = fopen($messagesFile, 'w');
     fclose($messagesFp);
 
-
     // Enregistre les autres informations dans le fichier annexe
     $annexeFp = fopen($annexeFile, 'w');
     fwrite($annexeFp, $annexeData);
@@ -103,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION['user_id'] = $user_id; // $user_id est l'ID généré pour l'utilisateur 
 
     // Affiche le message de confirmation
-    echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès.</div>';
+    echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès. Vous allez être redirigé</div>';
     echo '<script>hideMessageAndRedirect2("' . $user_id . '")</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
 }
 ?>
@@ -151,10 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="submit" value="Soumettre"> <br><br>
             <p>Cliquez sur le lien ci-dessous si vous êtes déjà inscrit :</p>
             <a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Inscrit</a></br>
-            <a href="http://localhost:8888/projetinfo1page_principal.php">Accéder en tant que visiteur</a>
             <form>
     </for>
 </body>
 </html>
-
-
