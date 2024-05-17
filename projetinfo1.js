@@ -18,8 +18,8 @@ const quizData = [
           difficulty: "intermédiaire"
         },
         {
-          question: "Qui est le pilote le plus titré de l'histoire de la F1 ?",
-          options: ["Michael Schumacher", "Lewis Hamilton", "Sebastian Vettel", "Ayrton Senna"],
+          question: "Qui est le pilote le plus titré de l'histoire de la F1 (parmis les propositions suivantes) ?",
+          options: ["Michael Schumacher", "Damon Hill", "Sebastian Vettel", "Ayrton Senna"],
           answer: "Michael Schumacher",
           difficulty: "facile"
         },
@@ -30,20 +30,20 @@ const quizData = [
           difficulty: "difficile"
         },
         {
-          question: "Combien de pneus secs peuvent être utilisés par chaque voiture lors d'une course de F1 ?",
+          question: "Combien de pneus secs peuvent être utilisés par chaque voiture lors d'un week-end de course ?",
           options: ["Jusqu'à 8 jeux de pneus", "Jusqu'à 10 jeux de pneus", "Jusqu'à 12 jeux de pneus", "Jusqu'à 13 jeux de pneus"],
           answer: "Jusqu'à 13 jeux de pneus",
           difficulty: "difficile"
         },
         {
-          question: "Quel est le nom du système de sécurité utilisé par tous les pilotes de F1 ?",
-          options: ["La Barrière de sécurité", "Le Halo", "Le Cockpit Shield", "Le Halo 2.0"],
+          question: "Quel est le nom du système de sécurité utilisé pour protéger la tête des pilotes ?",
+          options: ["La Barrière de sécurité", "Le Halo", "Le Cockpit Shield", "barre de sécurité"],
           answer: "Le Halo",
           difficulty: "facile"
         },
         {
           question: "Quel est le nom de la célèbre chicane du circuit de Spa-Francorchamps ?",
-          options: ["Les Combes", "La Parabolique", "Les Esses", "La Variante Ascari"],
+          options: ["Les Combes", "La Parabolique", "L'eau rouge", "La Variante Ascari"],
           answer: "Les Combes",
           difficulty: "intermédiaire"
         },
@@ -54,9 +54,9 @@ const quizData = [
           difficulty: "difficile"
         },
         {
-          question: "Quel est le nom de la célébration où le vainqueur d'une course de F1 arrose son équipe avec du champagne ?",
-          options: ["Le Podium", "Le Cérémonial de la victoire", "La Célébration du vainqueur", "Le Spray de champagne"],
-          answer: "Le Podium",
+          question: "En quelle année la première course de Formule 1 a-t-elle eu lieu ?",
+          options: ["1930", "1945", "1950", "1967"],
+          answer: "1950",
           difficulty: "facile"
         },
         {
@@ -96,9 +96,9 @@ const quizData = [
             difficulty: "intermédiaire"
         },
         {
-            question: "Quel est le nom de la célébration où le vainqueur d'une course de F1 brandit son trophée sur le podium ?",
-            options: ["La remise des trophées", "Le cérémonial du podium", "Le tour d'honneur", "La cérémonie de victoire"],
-            answer: "Le cérémonial du podium",
+            question: "Quel est le nom officiel de l'équipe de Formule 1 de Red Bull Racing avant 2005 ?",
+            options: ["BMW", "Jaguar Racing", "Porsche Racing", "Mercedes"],
+            answer: "Jaguar Racing",
             difficulty: "intermédiaire"
         },
         {
@@ -108,9 +108,9 @@ const quizData = [
             difficulty: "difficile"
         },
         {
-            question: "Quel est le nom du célèbre virage en épingle du circuit de Suzuka ?",
-            options: ["Le Virage en huit", "La Courbe des S", "L'Epingle de Suzuka", "Le Virage 130R"],
-            answer: "Le Virage en huit",
+            question: "Quelle écurie a remporté le premier championnat du monde (pilote) de Formule 1 en 1950 ?",
+            options: ["Mercedes", "Alfa Romeo", "Ferrari", "Maserati"],
+            answer: "Alfa Romeo",
             difficulty: "difficile"
         },
         {
@@ -157,8 +157,8 @@ const quizData = [
         },
         {
             question: "Quel est le nom du premier Grand Prix de la saison de F1 ?",
-            options: ["Grand Prix d'Australie", "Grand Prix de Bahreïn", "Grand Prix de Malaisie", "Grand Prix de Chine"],
-            answer: "Grand Prix d'Australie",
+            options: ["Grand Prix d'Amerique", "Grand Prix de Bahreïn", "Grand Prix de Malaisie", "Grand Prix de Chine"],
+            answer: "Grand Prix de Bahreïn",
             difficulty: "facile"
         },
         {
@@ -180,10 +180,10 @@ const quizData = [
             difficulty: "facile"
         },
         {
-            question: "Quel est le nom du virage serré du circuit de Sepang ?",
-            options: ["Virage 1", "Virage 2", "Virage 3", "Virage 4"],
-            answer: "Virage 1",
-            difficulty: "intermédiaire"
+            question: "Combien de points un pilote reçoit-il pour une victoire en course ?",
+            options: ["10 points", "30 points", "25 points", "15 points"],
+            answer: "25 points",
+            difficulty: "facile"
         },
         {
             question: "Qui est le pilote allemand champion du monde de F1 en 2016 ?",
@@ -198,10 +198,10 @@ const quizData = [
             difficulty: "intermédiaire"
         },
         {
-            question: "Quel est le nom de la célèbre chicane du circuit de Catalunya ?",
-            options: ["Chicane de la Rascasse", "Chicane de l'Épingle", "Chicane de la Chicane", "Chicane de la Piscine"],
-            answer: "Chicane de l'Épingle",
-            difficulty: "intermédiaire"
+            question: "Quel est le nombre maximum de voitures autorisées à participer à une course de Formule 1 ?",
+            options: ["10", "15", "20", "25"],
+            answer: "20",
+            difficulty: "facile"
         },
         {
             question: "Qui est le seul pilote à avoir remporté un championnat du monde de F1 avec une équipe britannique autre que McLaren ?",
@@ -213,18 +213,18 @@ const quizData = [
             question: "Quelle équipe de F1 est basée à Grove, en Angleterre ?",
             options: ["Ferrari", "McLaren", "Williams", "Red Bull Racing"],
             answer: "Williams",
-            difficulty: "intermédiaire"
-        },
-        {
-            question: "Quel est le nom du recordman du nombre de victoires consécutives en F1 ?",
-            options: ["Michael Schumacher", "Ayrton Senna", "Alberto Ascari", "Juan Manuel Fangio"],
-            answer: "Alberto Ascari",
             difficulty: "difficile"
         },
         {
-            question: "Quel est le nom de la célèbre chicane du circuit de Shanghai ?",
-            options: ["Chicane de l'Épingle", "Chicane du Virage", "Chicane du Lac", "Chicane de l'Agneau"],
-            answer: "Chicane de l'Épingle",
+            question: "Quelle est la signification de l'acronyme DRS en Formule 1 ?",
+            options: ["Defense Reconnaissance Systems", "Dynamic Response Strategies", "Data Recovery Specialists", "Drag Reduction System"],
+            answer: "rag Reduction System",
+            difficulty: "intermédiare"
+        },
+        {
+            question: "Quel pilote de Formule 1 a été surnommé The Iceman ?",
+            options: ["Sebastian Vettel", "Daniel Ricciardo", "Kimi Räikkönen", "Niki Lauda"],
+            answer: "Kimi Räikkönen",
             difficulty: "intermédiaire"
         },
         {
@@ -276,8 +276,8 @@ const quizData = [
             difficulty: "difficile"
         },
         {
-            question: "Qui est le seul pilote à avoir remporté un championnat du monde de F1 avec une équipe autrichienne ?",
-            options: ["Niki Lauda", "Gerhard Berger", "Jochen Rindt", "Helmut Marko"],
+            question: "En quelle année le système de points actuel en Formule 1 a-t-il été introduit ?",
+            options: ["2009", "2010", "2011", "2012"],
             answer: "Niki Lauda",
             difficulty: "difficile"
         },
@@ -298,7 +298,7 @@ const quizData = [
             options: ["Virage de la Rascasse", "Virage du Casino", "Virage du Portier", "Virage de la Loews"],
             answer: "Virage de la Rascasse",
             difficulty: "intermédiaire"
-        }
+        } 
 ];
 
 const quizContainer = document.getElementById('quiz-container');
@@ -307,6 +307,7 @@ const questionElement = document.getElementById('question');
 const optionsElement = document.getElementById('options');
 const resultContainer = document.getElementById('result-container');
 const remainingQuestionsElement = document.getElementById('remaining-questions');
+const questioncount = document.getElementById('question-count');
 
 
 let currentQuestion = 0;
@@ -314,6 +315,8 @@ let score = 0;
 let startTime = 0; // Ajoutez une variable pour enregistrer le temps de début
 let pausedTime = 0; // Ajoutez une variable pour enregistrer le temps écoulé lorsque le quiz est en pause
 let timerInterval;
+const MAX_QUESTIONS = 20;
+
 
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -324,79 +327,80 @@ function shuffleArray(array) {
 }
 
 function startQuiz() {
-    shuffleArray(quizData);
-    loadQuiz();
-    startTime = Date.now(); // Enregistrez le temps de début
-    startTimer();
+    shuffleArray(quizData); // Mélangez les données du quiz pour la randomisation.
+    startTime = Date.now(); // Démarrez le chronomètre.
+    loadQuiz(); // Chargez la première question.
+    startTimer(); // Démarrez le timer pour le quiz.
 }
 
 function loadQuiz() {
-    // Sélectionnez une question aléatoire
-    const randomIndex = Math.floor(Math.random() * quizData.length);
-    const currentQuizData = quizData[randomIndex];
-    
-    // Supprimez la question sélectionnée de la liste pour éviter de la poser à nouveau
-    quizData.splice(randomIndex, 1);
-    
-    questionElement.innerText = currentQuizData.question;
-    optionsElement.innerHTML = '';
-    currentQuizData.options.forEach(option => {
-        const button = document.createElement('button');
-        button.innerText = option;
-        button.classList.add('option-btn');
-        button.addEventListener('click', () => checkAnswer(option));
-        optionsElement.appendChild(button);
-    });
-    difficultyElement.className = 'difficulty-circle';
-    switch (currentQuizData.difficulty) {
-        case 'facile':
-            difficultyElement.classList.add('difficulty-facile');
-            break;
-        case 'intermédiaire':
-            difficultyElement.classList.add('difficulty-intermédiaire');
-            break;
-        case 'difficile':
-            difficultyElement.classList.add('difficulty-difficile');
-            break;
-        default:
-            break;
+    if (currentQuestion == MAX_QUESTIONS) {
+        showResults(); // Montrez les résultats si le maximum de questions a été atteint.
+        return;
     }
-    updateRemainingQuestions();
+
+    // Continuez seulement si il reste des questions dans le tableau et moins de MAX_QUESTIONS ont été posées.
+    if (quizData.length > 0) {
+        const randomIndex = Math.floor(Math.random() * quizData.length);
+        const currentQuizData = quizData[randomIndex];
+        quizData.splice(randomIndex, 1); // Supprimez la question pour éviter les répétitions.
+
+        // Mettez à jour le DOM avec la question et les options.
+        questionElement.innerText = currentQuizData.question;
+        optionsElement.innerHTML = '';
+        currentQuizData.options.forEach(option => {
+            const button = document.createElement('button');
+            button.innerText = option;
+            button.classList.add('option-btn');
+            button.addEventListener('click', () => checkAnswer(option, currentQuizData.answer));
+            optionsElement.appendChild(button);
+        });
+
+        updateDifficulty(currentQuizData.difficulty);
+        updateRemainingQuestions(); // Mettez à jour l'affichage des questions restantes.
+        currentQuestion++; // Incrémentez le compteur de questions après avoir chargé une question.
+    }
 }
 
-
-function updateRemainingQuestions() {
-    const remainingQuestions = quizData.length - currentQuestion - 1;
-    remainingQuestionsElement.innerText = remainingQuestions;
-}
-
-function checkAnswer(answer) {
-    clearInterval(timerInterval);
-    const currentQuizData = quizData[currentQuestion];
-    if (answer === currentQuizData.answer) {
+function checkAnswer(selectedOption, correctAnswer) {
+    clearInterval(timerInterval); // Arrêtez le timer lorsqu'une réponse est sélectionnée.
+    if (selectedOption === correctAnswer) {
         score++;
         resultContainer.innerText = 'Bonne réponse!';
     } else {
         resultContainer.innerText = 'Mauvaise réponse!';
     }
-    currentQuestion++;
-    if (currentQuestion < quizData.length) {
+
+    // Retardez la charge de la prochaine question pour permettre à l'utilisateur de voir la réponse.
+    if (currentQuestion < MAX_QUESTIONS) {
         loadQuiz();
-        startTimer(); // Redémarrez le chronomètre après avoir chargé la prochaine question
+        startTimer();
     } else {
         showResults();
     }
-    updateRemainingQuestions();
+}
+
+function updateDifficulty(difficulty) {
+    difficultyElement.className = 'difficulty-circle'; // Reset class
+    difficultyElement.classList.add(`difficulty-${difficulty}`); // Set correct difficulty class
+}
+
+function updateRemainingQuestions() {
+    // Mettez à jour l'élément avec le nombre correct de questions restantes.
+    remainingQuestionsElement.innerText = MAX_QUESTIONS - currentQuestion;
 }
 
 function showResults() {
-    quizContainer.style.display = 'none';
-    const elapsedTime = Math.floor((Date.now() - startTime - pausedTime) / 1000); // Calculez le temps écoulé
+    quizContainer.style.display = 'none'; // Cachez le conteneur du quiz.
+    questioncount.style.display = 'none';
+    const elapsedTime = Math.floor((Date.now() - startTime - pausedTime) / 1000);
     const minutes = Math.floor(elapsedTime / 60);
     const seconds = elapsedTime % 60;
     const formattedTime = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    resultContainer.innerHTML = `<h2>Votre score est ${score}/${quizData.length}</h2>`;
-    resultContainer.innerHTML += `<p>Temps écoulé: ${formattedTime}</p>`;
+    
+    saveResults(score, formattedTime);
+
+    resultContainer.innerHTML = `<h2>Votre score est ${score}/${MAX_QUESTIONS}</h2><p>Temps écoulé: ${formattedTime}</p>`;
 }
 
 function startTimer() {
@@ -421,5 +425,24 @@ document.addEventListener('visibilitychange', () => {
         startTimer(); // Redémarrez le chronomètre
     }
 });
+
+function saveResults(score, formattedTime) {
+    const data = { score: score, time: formattedTime };
+    fetch('saveResults.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+
 
 document.addEventListener('DOMContentLoaded', startQuiz);
