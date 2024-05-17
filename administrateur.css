@@ -16,7 +16,7 @@ body {
 }
 
 h1 {
-    color: #d70000;
+    color: rgb(212, 0, 0);
     text-align: center;
 }
 
@@ -42,7 +42,7 @@ select {
 }
 
 button {
-    background-color: #d70000;
+    background-color: rgb(212, 0, 0);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -51,14 +51,13 @@ button {
 }
 
 button:hover {
-    background-color: #b80000;
+    background-color: rgb(212, 0, 0);
 }
 
 #message {
     margin-top: 20px;
     padding: 10px;
     background-color: #ffe6e6;
-    color: #d70000;
+    color: rgb(212, 0, 0);
     border-radius: 4px;
 }
-
