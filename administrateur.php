@@ -6,7 +6,7 @@ if(isset($_SESSION['user_id'])) {
     // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
 } else {
     // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
-    header("Location: index.php");
+    header("Location: http://localhost:8888/index.php");
     exit;
 }
 
@@ -14,11 +14,11 @@ if(isset($_SESSION['user_id'])) {
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     $code = $_POST['code'];
 
-    // Vérifie si le code est correct
     if ($code === "1234") {
-        $_SESSION['admin'] = true; // Marque l'utilisateur comme administrateur
+        $_SESSION['admin'] = true; // L'utilisateur est marqué comme administrateur
+        exit;
     } else {
-        echo '<div id="message">Code incorrect. Veuillez réessayer.</div>';
+        $error_message = 'Code incorrect. Veuillez réessayer.'; // Message d'erreur si le code est faux
     }
 }
 
@@ -89,20 +89,29 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="administrateur.css">
     <title>Page administrateur</title>
+    <style>
+        .error {
+            color: red;
+            margin-top: 10px; /* Ajoute un peu d'espace au-dessus du message d'erreur */
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-    <h1>Page administrateur</h1>
-    <form method="post">
-        <label for="code">Entrez le code d'accès:</label>
-        <input type="password" name="code" id="code" required>
-        <button type="submit">Valider</button>
-    </form>
-    </br>
+    <div class="container">
+        <h1>Page administrateur</h1>
+        <form method="post">
+            <label for="code">Entrez le code d'accès:</label>
+            <input type="password" name="code" id="code" required>
+            <?php if (!empty($error_message)) { echo '<div class="error">' . $error_message . '</div>'; } ?>
+            <button type="submit">Valider</button>
+        </form>
+        <br>
         <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
-</div>
+    </div>
 </body>
 </html>
+
+
 <?php
     // Termine le script
     exit;
@@ -168,7 +177,3 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
 </div>
 </body>
 </html>
-
-
-
-
