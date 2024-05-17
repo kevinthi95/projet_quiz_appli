@@ -31,4 +31,14 @@
     font-size: 24px; /* Agrandit le texte avec le carré */
     padding: 20px; /* Plus de padding pour mieux encadrer le texte agrandi */
 }
+a {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #007BFF; /* Bleu pour les actions de navigation */
+    color: white; /* Texte en blanc pour le contraste */
+    text-decoration: none; /* Pas de soulignement pour un look plus propre */
+    border-radius: 5px; /* Bords arrondis pour le bouton de retour */
+}
+
 
