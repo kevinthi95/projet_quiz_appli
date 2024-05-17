@@ -7,7 +7,7 @@ if(isset($_SESSION['user_id'])) {
     // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
 } else {
     // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
-    header("Location: index.php");
+    header("Location: http://localhost:8888/index.php");
     exit;
 }
 ?>
@@ -25,5 +25,7 @@ if(isset($_SESSION['user_id'])) {
     </div>
     <button onclick="ajouterCarre()">Ajouter un carré</button>
     <script src="carte_abonne.js"></script>
+</br>
+    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" class="center-link">Retour à la page principale</a>
 </body>
 </html>
