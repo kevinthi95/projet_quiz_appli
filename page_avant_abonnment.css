@@ -4,6 +4,7 @@ body {
     color: #333;
     margin: 0;
     padding: 0;
+    
 }
 
 .container {
@@ -16,7 +17,7 @@ body {
 }
 
 h1 {
-    color: #c0392b;
+    color: red;
     text-align: center;
 }
 
@@ -65,3 +66,20 @@ h1 {
     background-color: #a93226;
 }
 
+/* Styles pour le lien de retour */
+a#retour-link {
+    color: white; /* Texte en blanc */
+    background-color: #007bff; /* Fond bleu */
+    padding: 12px 20px; /* Padding généreux pour un look de bouton */
+    border-radius: 6px; /* Coins arrondis */
+    display: inline-block; /* Permet d'appliquer le padding et d'autres styles de bloc */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: bold; /* Texte en gras */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+    transition: background-color 0.3s; /* Transition pour un effet de survol doux */
+}
+
+/* Effet au survol */
+a#retour-link:hover {
+    background-color: #0056b3; /* Bleu un peu plus foncé au survol */
+}
