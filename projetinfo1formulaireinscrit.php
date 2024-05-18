@@ -10,10 +10,9 @@
 <?php
 session_start(); // Démarrage de la session
 
-// Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = strtolower(trim($_POST['email']));  // Convertir l'email en minuscules pour correspondre à l'enregistrement
+    $password = strtolower(trim($_POST['password']));  // Assurez-vous de retirer les espaces indésirables
 
     $file = 'utilisateurs.txt';
     if (file_exists($file)) {
@@ -24,32 +23,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         foreach ($lines as $line) {
             $columns = explode(';', $line);
-            if (trim($columns[0]) === $email) {
-                if (trim($columns[1]) === $password) {
-                    // Génère un nouvel ID à chaque connexion
-                    $redirectId = uniqid();  
-                    $columns[2] = $redirectId; // Remplace l'ancien ID par le nouveau
-                    $line = implode(';', $columns) . PHP_EOL; // Reconstruit la ligne
-                    $found = true;
-                }
+            if (trim($columns[0]) === $email && trim($columns[1]) === $password) {
+                $redirectId = uniqid();  
+                $columns[2] = $redirectId; // Mettre à jour avec le nouvel ID
+                $line = implode(';', $columns) . PHP_EOL;
+                $found = true;
             }
             $updatedLines[] = $line;
         }
 
-        if ($found) {
-            file_put_contents($file, implode('', $updatedLines));
-            echo '<script>';
-            echo 'setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id='.$redirectId.'"; }, 5000);';
-            echo '</script>';
-            echo '<div id="message">Connexion réussie. Redirection dans 5 secondes...</div>';
-            $_SESSION['user_id'] = $redirectId;  // Stockez l'ID de l'utilisateur après une connexion réussie
+        file_put_contents($file, implode('', $updatedLines));  // Écrire les lignes mises à jour dans le fichier
 
+        if ($found) {
+            echo '<script>';
+            echo 'setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id='.$redirectId.'"; }, 3000);';
+            echo '</script>';
+            echo '<div id="message">Connexion réussie. Redirection dans 3 secondes...</div>';
+            $_SESSION['user_id'] = $redirectId;
             exit;
         } else {
+            echo '<div id="message">Email non trouvé ou mot de passe incorrect. Redirection dans 5 secondes...</div>';
             echo '<script>';
             echo 'setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; }, 5000);';
             echo '</script>';
-            echo '<div id="message">Email non trouvé ou mot de passe incorrect. Redirection dans 5 secondes...</div>';
             exit;
         }
     } else {
@@ -57,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
+
 
 
 
