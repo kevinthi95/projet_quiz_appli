@@ -1,63 +1,96 @@
+/* Styles de base */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f8f8;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
     color: #333;
     margin: 0;
-    padding: 0;
+    padding: 20px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 600px;
+    margin: auto;
     padding: 20px;
     background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: rgb(212, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
+h1 {
+    color: red;
+}
+
+/* Styles des formulaires */
 form {
-    max-width: 500px;
-    margin: 0 auto;
+    margin-top: 30px;
 }
 
-label {
-    display: block;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-input[type="password"],
-select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+input[type="password"], select {
+    width: 95%;
+    padding: 8px;
+    margin-top: 10px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 button {
-    background-color: rgb(212, 0, 0);
-    color: #fff;
-    border: none;
+    width: auto;
     padding: 10px 20px;
-    border-radius: 4px;
+    margin-top: 20px;
+    background-color: #4CAF50; /* Vert pour actions positives */
+    color: white;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: rgb(212, 0, 0);
+    background-color: #45a049;
 }
 
-#message {
+/* Messages */
+.message, .error {
     margin-top: 20px;
     padding: 10px;
-    background-color: #ffe6e6;
-    color: rgb(212, 0, 0);
-    border-radius: 4px;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+}
+
+.message {
+    background-color: #4CAF50; /* Vert succès */
+}
+
+.error {
+    background-color: #f44336; /* Rouge erreur */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Styles pour le lien de retour */
+a#retour-link {
+    color: white; /* Texte en blanc */
+    background-color: #007bff; /* Fond bleu */
+    padding: 12px 20px; /* Padding généreux pour un look de bouton */
+    border-radius: 6px; /* Coins arrondis */
+    display: inline-block; /* Permet d'appliquer le padding et d'autres styles de bloc */
+    text-decoration: none; /* Pas de soulignement */
+    font-weight: bold; /* Texte en gras */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
+    transition: background-color 0.3s; /* Transition pour un effet de survol doux */
+}
+
+/* Effet au survol */
+a#retour-link:hover {
+    background-color: #0056b3; /* Bleu un peu plus foncé au survol */
 }
