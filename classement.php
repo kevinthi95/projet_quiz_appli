@@ -1,9 +1,14 @@
 <?php
+// Démarrer la session
 session_start();
 
-// Vérifiez si l'utilisateur est connecté
-if (!isset($_SESSION['user_id'])) {
-    echo "Vous devez être connecté pour voir cette page.";
+// Vérifier si l'ID de l'utilisateur est présent dans la session
+if(isset($_SESSION['user_id'])) {
+    $user_id = $_SESSION['user_id'];
+    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
+} else {
+    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
+    header("Location: http://localhost:8888/index.php");
     exit;
 }
 
@@ -63,5 +68,6 @@ $topResults = array_slice($results, 0, 20);
             </tr>
         <?php endforeach; ?>
     </table>
+    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo htmlspecialchars($user_id); ?>" id="retour-link">Retour à la page principale</a>
 </body>
 </html>
