@@ -1,0 +1,132 @@
+/* Styles de base */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    max-width: 960px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Arial', sans-serif; /* Utilisation d'une police web standard */
+    font-size: 28px; /* Taille de la police */
+    color: red; /* Couleur du texte */
+    text-align: center; /* Centrage du texte */
+    margin-top: 20px; /* Espace au-dessus du titre */
+    margin-bottom: 20px; /* Espace en dessous du titre */
+    padding: 10px; /* Padding autour du texte */
+    background-color: #f8f8f8; /* Couleur de fond derrière le texte */
+    border-radius: 8px; /* Bords arrondis */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre*/
+
+}
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+
+/* Formulaires et sélecteurs */
+form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #555;
+}
+
+select, input[type="submit"] {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+.button1 {
+    background-color: #f44336; /* Vert pour les actions positives */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+ 
+
+button {
+    background-color: #4CAF50; /* Vert pour les actions positives */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+.button1:hover {
+    background-color: #e03327;
+}
+/* Messages d'état */
+#message {
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+    color: red;
+    font-size: 16px;
+}
+
+#message1 {
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+    color:green;
+    font-size: 16px;
+}
+.message {
+    background-color: #4CAF50; /* Vert succès */
+}
+
+.error {
+    background-color: #f44336; /* Rouge erreur */
+}
+
+/* Liens */
+a {
+    display: block;
+    width: fit-content;
+    margin: 20px auto;
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+a:hover {
+    background-color: #0056b3;
+    text-decoration: underline;
+}
