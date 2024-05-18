@@ -25,8 +25,7 @@ if(isset($_SESSION['user_id'])) {
     <h1>Présentation de la Formule 1</h1>
     <nav>
         <ul>
-    
-           <li><a href="http://localhost:8888/page_avant_quiz.php?id=<?php echo $user_id; ?>" >Quiz</a></li>
+            <li><a href="http://localhost:8888/page_avant_quiz.php?id=<?php echo $user_id; ?>" >Quiz</a></li>
             <li><a href= "http://localhost:8888/classement.php?id=<?php echo $user_id; ?>" >Classement</a></li>
             <li><a href= "http://localhost:8888/profil.php?id=<?php echo $user_id; ?>" >Profil</a></li>
             <li><a href= "http://localhost:8888/deconnexion.php?id=$<?php echo $user_id; ?>">Se déconnecter</a></li>
@@ -382,5 +381,3 @@ if(isset($_SESSION['user_id'])) {
         <script src="projetinfo1page_principal.js"></script>
 </body>
 </html>
-
-
