@@ -69,15 +69,14 @@ if (!$email || !checkAccess($email)) {
             <p>Ce quiz vous permettra de tester vos connaissances. Répondez aux questions pour découvrir votre niveau.</p>
             <p>Le quiz est composé de questions de différents niveaux de difficulté :</p>
             <ul>
-                <li><span class="difficulty-circle difficulty-facile"></span>Facile (1 point)</li>
-                <li><span class="difficulty-circle difficulty-intermédiaire"></span>Intermédiaire (2 points)</li>
-                <li><span class="difficulty-circle difficulty-difficile"></span>Difficile (3 points)</li>
+                <li><span class="difficulty-circle difficulty-facile"></span>Facile</li>
+                <li><span class="difficulty-circle difficulty-intermédiaire"></span>Intermédiaire</li>
+                <li><span class="difficulty-circle difficulty-difficile"></span>Difficile </li>
             </ul>
             <p>Prenez votre temps pour répondre à chaque question et essayez d'obtenir le meilleur score possible !</p>
             <a href="http://localhost:8888/projetinfo1.php?id=<?php echo $user_id; ?>" class="styled-button">Commencer le Quiz</a>
         </section>
+        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" class="center-link">Retour à la page principale</a>
     </main>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" class="center-link">Retour à la page principale</a>
-</body>
+    </body>
 </html>
-
