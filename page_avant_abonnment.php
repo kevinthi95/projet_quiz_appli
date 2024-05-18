@@ -63,13 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
             ?>
             <button type="submit">Devenir Abonné</button>
         </form>
+        <a id="retour-link" href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
     </div>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
 </body>
 </html>
 
 <?php
     // Termine le script
     exit;
-}
 ?>
