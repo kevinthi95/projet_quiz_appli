@@ -52,52 +52,31 @@ if (file_exists($annexeFile)) {
 // Traitement du formulaire de mise à jour du mot de passe
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
-    $current_password = $_POST['current_password'];
-    $new_password = $_POST['new_password'];
-    $confirm_password = $_POST['confirm_password'];
+    $current_password = strtolower(trim($_POST['current_password']));  // Assurez-vous de retirer les espaces
+    $new_password = strtolower(trim($_POST['new_password']));  // Convertir en minuscules
+    $confirm_password = strtolower(trim($_POST['confirm_password']));  // Convertir en minuscules
 
-
-    // Vérifier si le fichier utilisateurs.txt existe
     if (file_exists($file)) {
-        // Lire chaque ligne du fichier
         $lines = file($file);
-
-        // Parcourir chaque ligne
         foreach ($lines as &$line) {
-            // Séparer la ligne en colonnes en utilisant le point-virgule comme séparateur
             $columns = explode(';', $line);
-
-            // Vérifier si l'ID de l'utilisateur correspond à celui de la session
             if (trim($columns[2]) === trim($user_id)) {
-                // Récupérer le mot de passe actuel de l'utilisateur dans le fichier
                 $stored_password = trim($columns[1]);
-
-
-
-                // Vérifier si le mot de passe soumis correspond au mot de passe stocké dans le fichier
                 if ($current_password === $stored_password) {
-                    // Vérifier si les nouveaux mots de passe correspondent
                     if ($new_password === $confirm_password) {
-                           // Mettre à jour le mot de passe dans le fichier
                         $line = str_replace($stored_password, $new_password, $line);
                         file_put_contents($file, implode('', $lines));
-
-                        // Afficher un message de succès
                         $message = "Mot de passe mis à jour avec succès.";
                     } else {
-                        // Afficher un message d'erreur si les nouveaux mots de passe ne correspondent pas
                         $message = "Les nouveaux mots de passe ne correspondent pas.";
                     }
                 } else {
-                    // Afficher un message d'erreur si le mot de passe actuel est incorrect
                     $message = "Mot de passe actuel incorrect.";
                 }
-                // Sortir de la boucle après avoir trouvé l'utilisateur correspondant
                 break;
             }
         }
     } else {
-        // Afficher un message d'erreur si le fichier utilisateurs.txt n'existe pas
         $message = "Le fichier utilisateurs.txt n'existe pas.";
     }
 }
@@ -133,10 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
         <?php if (!empty($message)) echo "<p>$message</p>"; ?>
     </div>
     <div class="footer">
-        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
+        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo htmlspecialchars($user_id); ?>" id="retour-link">Retour à la page principale</a>
     </div>
+
 </body>
 </html>
-
-
-
