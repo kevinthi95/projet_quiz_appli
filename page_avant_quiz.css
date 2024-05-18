@@ -1,5 +1,4 @@
 body {
-    background-image: url('trouver-image.jpg'); /* Remplacez 'trouver-image.jpg' par le chemin de votre image de fond */
     background-size: cover;
     font-family: Arial, sans-serif;
     margin: 0;
@@ -79,12 +78,21 @@ footer {
 }
 
 .center-link {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
+    color: white;
+    background-color: #007bff; 
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: inline-block;
     text-decoration: none;
-    color: #007bff;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
 }
+/* Effet au survol */
+.center-link:hover {
+    background-color: #0056b3; /* Bleu un peu plus foncé au survol */
+}
+
 
 .styled-button {
     display: inline-block;
