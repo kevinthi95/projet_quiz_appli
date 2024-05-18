@@ -1,55 +1,96 @@
-/* Styles de base pour la page */
+/* Styles généraux */
 body {
-    font-family: 'Arial', sans-serif; /* Police plus lisible */
-    background-color: white; /* Fond blanc */
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #e9ecef; /* Couleur de fond plus douce */
+    color: #212529;
     margin: 0;
     padding: 20px;
+    line-height: 1.6; /* Amélioration de l'interligne pour la lisibilité */
 }
 
-/* Styles pour les titres */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px; /* Coins plus arrondis */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05); /* Ombre plus douce */
+}
+
 h1, h2 {
-    color: red; /* Titres en rouge */
+    color: #b81717; /* Couleur distinctive pour les titres */
+    font-size: 2; /* Taille plus grande pour le titre principal */
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-/* Styles pour l'encadré des messages */
-ul {
-    border: 1px solid #ccc; /* Bordure grise légère */
-    padding: 10px;
-    list-style-type: none; /* Enlève les puces de liste */
-    background-color: #f9f9f9; /* Fond légèrement gris pour les messages */
-    margin-top: 20px; /* Espacement au-dessus de la liste */
-}
-
-li {
-    margin-bottom: 10px; /* Espacement entre les messages */
-    padding: 10px;
-    background-color: #ffffff; /* Fond blanc pour chaque message */
-    border: 1px solid #ddd; /* Légère bordure pour chaque message */
-}
-
-/* Styles pour le formulaire */
+/* Mise en forme du formulaire */
 form {
-    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s; /* Transition douce pour les interactions */
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
 }
 
 select, textarea, input[type="submit"] {
-    padding: 10px;
-    margin-top: 5px;
-    width: 100%; /* Largeur complète pour faciliter la saisie */
-    box-sizing: border-box; /* La largeur inclut padding et border */
+    width: 100%;
+    padding: 5px;
+    margin-top: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1.1em;
+    transition: all 0.3s; /* Transition douce pour les interactions */
 }
 
-/* Bouton de retour */
-a {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #007BFF;
+select:hover, textarea:hover, input[type="submit"]:hover {
+    border-color: #adb5bd; /* Changement de couleur au survol */
+}
+
+input[type="submit"] {
+    background-color: #28a745; /* Couleur verte pour le bouton */
     color: white;
-    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #218838; /* Vert plus foncé au survol */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f8f9fa;
+    padding: 15px;
     border-radius: 5px;
+    margin-top: 10px;
+    border-left: 5px solid #b81717; /* Bordure gauche pour plus de style */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 a:hover {
-    background-color: #0056b3;
+    background-color: #e2e6ea;
+}
+
+textarea {
+    height: 150px; /* Plus de hauteur pour plus d'espace d'écriture */
 }
