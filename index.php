@@ -34,7 +34,7 @@ session_start();
 // Vérifie si le formulaire a été soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupère l'e-mail soumis dans le formulaire
-    $email = $_POST['email'];
+    $email = strtolower(trim($_POST['email']));
 
     // Vérifie si le fichier des utilisateurs existe
     $file = 'utilisateurs.txt';
@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = uniqid(); // Définition de $user_id ici
 
     // Formatte les données pour les enregistrer dans un fichier texte
-    $data = "$email;$password;$user_id\n";
+    $data = "$email;" . (trim($password)) . ";$user_id\n";
 
     // Enregistre les autres informations dans un fichier annexe
     $annexeData = "Nom:$nom\nPrénom:$prenom\nAdresse e-mail:$email\nÂge:$age\nPays:$pays\nPassions: $passions\nAccès:oui\n";
@@ -152,4 +152,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </for>
 </body>
 </html>
-
