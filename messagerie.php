@@ -71,7 +71,7 @@ $messages = getMessages($email);
 <body>
     <h1>Messagerie</h1>
     <form method="post" action="messagerie.php">
-        <textarea name="message" placeholder="Entrez votre message"></textarea><br>
+        <textarea name="message" placeholder="Entrez votre message. Un administrateur du site le recevra."></textarea><br>
         <input type="submit" value="Envoyer">
     </form>
 
