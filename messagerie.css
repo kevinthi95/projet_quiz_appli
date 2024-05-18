@@ -9,12 +9,12 @@ body {
 
 /* Styles pour les titres */
 h1 {
-    color: #d32f2f; /* Utilisation d'une couleur rouge pour attirer l'attention */
+    color: #b60101; /* Utilisation d'une couleur rouge pour attirer l'attention */
     font-size: 24px; /* Taille de la police pour le titre principal */
 }
 
 h2 {
-    color: #d32f2f; /* Même couleur rouge pour le sous-titre */
+    color: red; /* Même couleur rouge pour le sous-titre */
     margin-top: 30px; /* Espacement pour séparer les sections */
     font-size: 20px;
 }
