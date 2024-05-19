@@ -10,9 +10,9 @@
 <?php
 session_start(); // Démarrage de la session
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = strtolower(trim($_POST['email']));  // Convertir l'email en minuscules pour correspondre à l'enregistrement
-    $password = strtolower(trim($_POST['password']));  // Assurez-vous de retirer les espaces indésirables
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
+    $email = trim($_POST['email']);  // Convertir l'email en minuscules pour correspondre à l'enregistrement
+    $password = trim($_POST['password']);  // Assurez-vous de retirer les espaces indésirables
 
     $file = 'utilisateurs.txt';
     if (file_exists($file)) {
@@ -32,9 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $updatedLines[] = $line;
         }
 
-        file_put_contents($file, implode('', $updatedLines));  // Écrire les lignes mises à jour dans le fichier
+       
 
         if ($found) {
+            file_put_contents($file, implode('', $updatedLines));  // Écrire les lignes mises à jour dans le fichier
             echo '<script>';
             echo 'setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id='.$redirectId.'"; }, 3000);';
             echo '</script>';
