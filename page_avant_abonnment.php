@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     // Vérifie si le code d'abonnement est correct
     if ($code === "1111") {
         $_SESSION['abonne'] = true; // Marque l'utilisateur comme abonné
-        header("Location: abonne.php"); // Redirige vers la page réservée aux abonnés
+        header("Location: http://localhost:8888/abonne.php?id=$user_id"); // Redirige vers la page réservée aux abonnés
         exit;
     } else {
         $error_message = 'Code incorrect. Veuillez réessayer.'; // Stocke le message d'erreur
