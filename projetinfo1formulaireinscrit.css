@@ -1,29 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    display: grid;
+    place-items: center;
+    height: 100vh; 
     margin: 0;
-    padding: 0;
-}
-
-h1 {
-    text-align: center;
-    border-bottom: 2px solid #4caf50; /* Ajoute une bordure en bas */
-    padding-bottom: 10px;
-    font-family: "Arial Black", sans-serif; 
-    background-color: #f0f0f0; /* Ajoute un fond gris clair */
-    padding: 10px;
-    background: linear-gradient(to right, #4caf50, #007bff); /* Utilise un dégradé de vert à bleu */
-    color: white; /* Change la couleur du texte en blanc pour contraster */
-    padding: 10px;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
 }
 
 form {
-    max-width: 400px;
-    margin: 0 auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #4caf50; 
+    padding-bottom: 10px;
+    font-family: "Arial Black", sans-serif; 
+    background-color: #f0f0f0; 
+    padding: 10px;
+    background: linear-gradient(to right, #4caf50, #007bff); 
+    color: white; 
+    padding: 10px;
 }
 
 label {
@@ -59,19 +60,12 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
-a {
-    display: block;
-    text-align: center;
-    color: #007bff;
-    text-decoration: none;
-}
-
 a:hover {
     text-decoration: underline;
 }
 
 a:visited {
-    color: #4b0082; /* Change la couleur des liens visités en violet */
+    color: #4b0082;
 }
 
 p {
@@ -79,35 +73,112 @@ p {
     text-align: center;
     color: #888;
 }
-/* Style pour le message container */
+
 #message-container {
-    background-color: #f8d7da; /* Couleur de fond */
-    color: #721c24; /* Couleur du texte */
-    padding: 10px 15px; /* Espacement intérieur */
-    border-radius: 5px; /* Coins arrondis */
-    margin-bottom: 20px; /* Marge inférieure */
+    background-color: #f8d7da; 
+    color: #721c24; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
 }
 
-/* Style pour le message de succès */
 #message-container.success {
-    background-color: #d4edda; /* Couleur de fond pour succès */
-    color: #155724; /* Couleur du texte pour succès */
+    background-color: #d4edda; 
+    color: #155724;
 }
 
-/* Style pour le message d'erreur */
 #message-container.error {
-    background-color: #f8d7da; /* Couleur de fond pour erreur */
-    color: #721c24; /* Couleur du texte pour erreur */
+    background-color: #f8d7da; 
+    color: #721c24; 
 }
 
-/* Style pour le lien */
 #message-container a {
-    color: #155724; /* Couleur du lien */
-    text-decoration: underline; /* Soulignement du lien */
-    cursor: pointer; /* Curseur au survol du lien */
+    color: #155724; 
+    text-decoration: underline; 
+    cursor: pointer; 
 }
 
-/* Style pour le lien au survol */
 #message-container a:hover {
-    color: #0d3a13; /* Couleur du lien au survol */
+    color: #0d3a13; 
 }
+.form {
+    background-color: #fff;
+    display: block;
+    padding: 1rem;
+    max-width: 350px;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input-container input, .form button {
+    outline: none;
+    border: 1px solid #e5e7eb;
+    margin: 8px 0;
+  }
+  
+  .input-container input {
+    background-color: #fff;
+    padding: 1rem;
+    padding-right: 3rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 300px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+  
+  .input-container span {
+    display: grid;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    place-content: center;
+  }
+  
+  .input-container span svg {
+    color: #9CA3AF;
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .submit {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: #4F46E5;
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+  }
+  
+  .signup-link {
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+  }
+  
+  .signup-link a {
+    text-decoration: underline;
+  }
