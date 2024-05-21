@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire de saisie des informations - Confirmation</title>
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaire.css">
+    <link rel="stylesheet" href="style.css">
     <script>
         // Fonction pour masquer le message après quelques secondes et rediriger
         function hideMessageAndRedirect1() {
@@ -26,7 +27,6 @@
 </head>
 
 <body>
-    <h1>Formulaire de saisie des informations</h1>
     <?php
 // Démarrer la session
 session_start();
@@ -106,25 +106,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 
-
-    <form id="formulaire" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-    <label for="nom">Nom :</label>
-            <input type="text" id="nom" name="nom" minlength="1" maxlength="30" required placeholder="Entrez votre nom"><br><br>
-
-            <label for="prenom">Prénom :</label>
-            <input type="text" id="prenom" name="prenom" required placeholder="Entrez votre prénom"><br><br>
-
-            <label for="email">Adresse e-mail :</label>
-            <input type="email" id="email" name="email" required placeholder="email@gmail.com"><br><br>
-
-            <label for="password">Mot de passe :</label>
-            <input type="password" id="password" name="password" required placeholder="mot de passe"><br><br>
-
-            <label for="age">Âge :</label>
-            <input type="number" id="age" name="age" min="0" required placeholder="18"><br><br>
-
-            <label for="pays">Pays :</label>
-            <select id="pays" name="pays" required>
+<div class="form-container">
+        <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <p class="form-title">Nouveau compte</p>
+            <div class="input-container">
+                <input type="text" id="nom" name="nom" required placeholder="Entrez votre nom">
+                <input type="text" id="prenom" name="prenom" required placeholder="Entrez votre prénom">
+                <input type="email" id="email" name="email" required placeholder="email@gmail.com">
+                <input type="password" id="password" name="password" required placeholder="Mot de passe">
+                <input type="number" id="age" name="age" min="0" required placeholder="Âge">
+                </br>
+                <select id="pays" name="pays" required>
                 <option value="">Sélectionnez votre pays</option>
                 <option value="france">🇫🇷 France</option>
                 <option value="belgique">🇧🇪 Belgique</option>
@@ -139,16 +131,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <option value="maroc">🇲🇦 Maroc</option>
                 <option value="tunisie">🇹🇳 Tunisie</option>
             </select><br><br>
-
-            <label for="passions">Passions :</label><br>
-            <input type="text" id="passions" name="passions" placeholder="Entrez vos passions séparées par des virgules"><br><br>
-                
-            <br><br>
-            
-            <input type="submit" value="Soumettre"> <br><br>
-            <p>Cliquez sur le lien ci-dessous si vous êtes déjà inscrit :</p>
-            <a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Inscrit</a></br>
-            <form>
+                <input type="text" id="passions" name="passions" placeholder="Entrez vos passions séparées par des virgules">
+            </div>
+            <button type="submit" class="submit">Soumettre</button>
+            <p class="signup-link">Déjà inscrit? <a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Connexion</a></p>
+        </form>
+    </div>
     </for>
 </body>
 </html>
