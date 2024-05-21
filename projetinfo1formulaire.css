@@ -1,92 +1,85 @@
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    text-align: center;
-    border-bottom: 2px solid #4caf50; /* Ajoute une bordure en bas */
-    padding-bottom: 10px;
-    font-family: "Arial Black", sans-serif; 
-    background-color: #f0f0f0; /* Ajoute un fond gris clair */
-    padding: 10px;
-    background: linear-gradient(to right, #4caf50, #007bff); /* Utilise un dégradé de vert à bleu */
-    color: white; /* Change la couleur du texte en blanc pour contraster */
-    padding: 10px;
-}
-
-form {
-    max-width: 400px;
-    margin: 0 auto;
+.form {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    max-width: 350px;
+    width: calc(100% - 2rem);  /* Assure que le formulaire ne dépasse pas les marges horizontales */
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-select {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box;
-}
-
-input[type="submit"] {
-    width: 100%;
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #45a049;
-}
-
-a {
-    display: block;
+.form-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
     text-align: center;
-    color: #007bff;
-    text-decoration: none;
+    color: #000;
+    margin-bottom: 1rem;
 }
 
-a:hover {
+.input-container {
+    width: 100%; /* Ajuste la largeur des conteneurs d'entrée à la largeur du formulaire */
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.input-container input {
+    width: calc(100% - 2rem); /* Compense pour le padding, évitant le débordement */
+    padding: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.submit {
+    width: 100%;
+    background-color: #4F46E5;
+    color: #ffffff;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.signup-link {
+    margin-top: 1rem;
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+}
+
+.signup-link a {
+    color: #4F46E5;
     text-decoration: underline;
 }
 
-a:visited {
-    color: #4b0082; /* Change la couleur des liens visités en violet */
+// pour tel, a enlever peut etre
+@media (max-width: 400px) {
+    .form {
+        width: 95%;
+        padding: 0.5rem;
+    }
+
+    .input-container input {
+        width: calc(100% - 1rem); /* Ajuste la largeur des inputs sur les petits écrans pour éviter tout débordement */
+    }
 }
 
-p {
-    margin-top: 20px;
-    text-align: center;
-    color: #888;
-}
-#message-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+
