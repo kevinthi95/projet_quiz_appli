@@ -18,6 +18,7 @@ if(isset($_SESSION['user_id'])) {
     <meta charset="UTF-8">
     <title>Bloc Notes Dynamique</title>
     <link rel="stylesheet" href="carte_abonne.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="noteContainer">
