@@ -25,7 +25,6 @@ if(isset($_SESSION['user_id'])) {
         <h1>Informations sur la Formule 1</h1>
         <nav>
             <ul>
-                <li> <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Accueil</a></li>
                 <li><a href="http://localhost:8888/carte_abonne.php?id=<?php echo $user_id; ?>">Carte </a></li>
     
             </ul>
@@ -56,7 +55,8 @@ if(isset($_SESSION['user_id'])) {
   
         </section>
     </main>
-
+ <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
     <footer>
         <p>&copy; 2024 Informations sur la Formule 1. Tous droits réservés.</p>
     </footer>
