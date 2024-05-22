@@ -112,7 +112,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
         <?php if (!empty($message)) echo "<p>$message</p>"; ?>
     </div>
     <div class="footer">
-        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo htmlspecialchars($user_id); ?>" id="retour-link">Retour à la page principale</a>
+         <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
     </div>
 
 </body>
