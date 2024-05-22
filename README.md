@@ -1,37 +1,48 @@
 # projet_quiz_appli
-Création d'une application web contenant un quiz sur la f1
+Bienvenue dans notre fantastique application web de quiz sur la Formule 1 !
 
-voici le cahier des charges du projets :
 
-Objectif : Développer une application web interactive permettant aux utilisateurs de tester leurs connaissances sur la Formule 1 tout en utilisant les technologies suivantes : JavaScript pour la logique du quiz, CSS pour le style de l'application web, HTML pour la structure de l'application web, et Node.js pour le côté serveur.
-Fonctionnalités requises :
+Pages et Utilisation
 
-* 		Interface utilisateur :
-    * Créer une interface utilisateur attrayante et conviviale pour le quiz sur la Formule 1.
-    * Crée un formulaire d’inscription et stoker les données des utilisateur.
-    * L'interface doit inclure des éléments visuels appropriés tels que des images de f1.
-    * Une page d’information sur les question posé pour les utilisateur.
-    * Assurer une mise en page correct pour une expérience utilisateur optimale sur les ordinateur
-    * 
-* 		Questions du quiz :
+saveResults.php: Page utilisée pour enregistrer les résultats du quiz des utilisateurs.
+projetinfo1formulaireinscrit.php: Page d'identification lorsque l'on a déjà un compte.
+projetinfo1.php: Page de quiz principale avec chronomètre et nombre de questions restantes.
+profil.php: Page d'affichage des données relatives au profil de l'utilisateur, permet de modifier le mot de passe.
+page_avant_quiz.php: Page avant le quiz, avant que le chronomètre commence.
+page_avant_abonnement.php: Page où l'on renseigne le code d'accès, et redirige ou non vers la page abonnee.php.
+messagerie.php: Messagerie utilisée par les utilisateurs lambda.
+index.php: Formulaire d'inscription, récupération des données utilisateur, copie dans le fichier utilisateurs.txt, création du fichier email.txt dans le dossier donnees et messages. Copie des données utilisateurs dans donnees/email.txt.
+deconnexion.php: Détruit l'ID et la session de l'utilisateur.
+classement.php: Récupère et trie les scores et temps des utilisateurs, utilise un ratio pour trier.
+admin_content.php: Page pour bloquer ou débloquer l'accès au quiz aux utilisateurs.
+administrateur.php: Page administrateur, avec code d'accès.
+abonnee.php: Page abonnée avec information supplémentaire et accès à carte_abonnee.php.
+reply.php: Fichier supplémentaire permettant de répondre à l'utilisateur.
+projetinfo1page_principal.php: Page principale après connexion, affichant les informations et les fonctionnalités pour les utilisateurs connectés.
+adminmess.php: Page d'administration pour gérer les messages des utilisateurs.
 
-    * Les questions du quiz doivent porter sur différents aspects de la Formule 1, y compris l'histoire, les pilotes, les équipes, les circuits, etc.
-    * Les questions doivent être variées en difficulté et en sujet pour offrir une expérience de quiz diversifiée.
-    * Chaque question doit être à choix multiples avec au moins 4 options de réponse.
-    * Les points seront sauvegarder, et un tableau des scores sera établie
-    * Les réponses correctes doivent être définies pour chaque question
+Fichiers et Répertoires
 
-* 		Fonctionnalités du quiz :
+utilisateurs.txt: Fichier contenant les informations des utilisateurs (adresses email; mots de passe; identifiants).
+donnees/: Dossier contenant des données pour le quiz, scores, temps, accès...
+message/: Dossier contenant les messages des utilisateurs et de l'admin.
 
-    * Afficher une question à la fois à l'utilisateur.
-    * Permettre à l'utilisateur de sélectionner une réponse parmi les options disponibles.
-    * Valider la réponse de l'utilisateur et afficher si elle est correcte ou incorrecte.
-    * Calculer et afficher le score de l'utilisateur en fonction du nombre de réponses correctes.
-    * Fournir un feedback visuel à l'utilisateur sur son score après chaque réponse.
-    * À la fin du quiz, afficher le score total de l'utilisateur et lui permettre de rejouer ou de quitter le quiz.
- 
-Quiz : Une section dédiée à un quiz divertissant sur divers sujets. Les utilisateurs peuvent tester leurs connaissances en répondant à une série de questions à choix multiples. Chaque réponse est vérifiée en temps réel, et les résultats sont affichés à la fin du quiz.
+ Avant de plonger dans l’univers de notre quiz, voici quelques étapes essentielles pour configurer le site correctement.
 
-Formulaire : Une plateforme permettant aux utilisateurs de saisir leurs informations personnelles telles que leur nom, prénom, âge, adresse e-mail, mot de passe, pays et passions. Ce formulaire est conçu pour collecter des données utiles dans un format convivial et sécurisé.
+Pour commencer, il est crucial de créer trois éléments dans le répertoire principal de votre serveur : un fichier nommé utilisateurs.txt, un dossier donnees, et un dossier message. Ces éléments doivent être créés manuellement. De plus, vous devrez mettre à jour les liens de direction vers ces fichiers et dossiers en fonction des chemins spécifiques de votre serveur.
 
-Page d'Information : Une section informative fournissant des détails et des ressources sur divers sujets. Cette page offre aux utilisateurs un accès rapide à des informations pertinentes et engageantes sur des sujets variés.
+Une fois cette configuration initiale effectuée, vous pouvez ouvrir le fichier index.php, le point de départ de notre projet. Vous y renseignerez les informations importantes, à l'exception de la section "passions" qui est facultative.
+
+Si vous êtes déjà inscrit, vous pouvez cliquer sur "connexion". Le formulaire reconnaîtra votre adresse email et affichera un message "Vous êtes déjà inscrit", vous redirigeant ainsi vers la page de connexion. Si vous n'êtes pas encore inscrit, vous serez redirigé vers la page principale avec un message "Merci, vos informations ont été prises en compte".
+
+Sur la page de connexion, il est nécessaire de saisir votre email et votre mot de passe. Si l'un ou l'autre n'est pas reconnu, un message d'erreur s'affichera et vous ne pourrez pas continuer. Si les informations sont correctes, vous serez redirigé vers la page principale. Pour des raisons de sécurité, à chaque connexion, une adresse IP est créée ou mise à jour, remplaçant l'ancienne.
+
+Une fois sur la page principale, vous pouvez faire défiler vers le bas pour lire des informations utiles qui vous aideront à résoudre le quiz. Un bouton en bas à gauche vous ramènera rapidement en haut de la page. De plus, un bouton de déconnexion en haut à gauche vous permet de vous déconnecter, réinitialisant les attributs administrateur et abonné.
+
+En cliquant sur "Quiz", vous êtes dirigé vers une page pré-quiz qui explique les règles et fournit les informations nécessaires pour une expérience optimale. Un bouton "Accueil" est toujours présent pour vous ramener à la page d'accueil. Lorsque vous cliquez sur "Commencer le quiz", le quiz démarre avec un chronomètre et le nombre de questions restantes. À la fin du quiz, les résultats sont sauvegardés et classés. Vous pouvez consulter le classement des meilleurs scores via l'onglet "Classement".
+
+L'onglet "Profil" vous permet de voir  vos données enregistrées, vous pouvez y modifier votre mot de passe. L'onglet "Admin" vous donne accès aux fonctions administratives après avoir entré le code secret "1234". Ne le divulguez pas ! Ce code vous permet de bloquer ou débloquer l'accès au quiz pour un utilisateur spécifique. Dans cette section, vous pouvez aussi accéder à la messagerie pour sélectionner un utilisateur, voir toute la conversation avec lui, et lui répondre.
+
+L'onglet "Abonnement", accessible avec le code "1111", vous dirige vers la page abonné. Ici, vous trouverez des informations supplémentaires et des cartes pour prendre des notes personnelles, comme les réponses que vous connaissez déjà pour le quiz.
+
+Retournez à l'accueil, via l'onglet "Messagerie" pour poser n'importe quelle question à l'administrateur. Voilà, vous êtes prêt à jouer ! À vous de jouer maintenant !
