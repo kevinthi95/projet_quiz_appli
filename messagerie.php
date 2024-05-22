@@ -66,7 +66,8 @@ $messages = getMessages($email);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Messagerie</title>
-    <link rel="stylesheet" href="messagerie.css"> <!-- Assurez-vous que le chemin d'accès est correct -->
+    <link rel="stylesheet" href="messagerie.css"> 
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Messagerie</h1>
