@@ -46,7 +46,7 @@ function saveMessage($email, $message) {
     $filename = 'message/' . $email . '.txt';
     date_default_timezone_set('Europe/Paris');
     $dateTime = date('Y-m-d H:i:s');
-    $formattedMessage = $dateTime . '|' . $message;
+    $formattedMessage = "user : " .$dateTime . '|' . $message;
     file_put_contents($filename, $formattedMessage . PHP_EOL, FILE_APPEND);
 }
 
