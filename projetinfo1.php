@@ -50,7 +50,8 @@ if(isset($_SESSION['user_id'])) {
     </div>
 
     <script src="projetinfo1.js"></script>
-
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" class="center-link">Retour à la page principale</a>
+</br>
+     <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
 </body>
 </html>
