@@ -58,6 +58,7 @@ if (!$email || !checkAccess($email)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accès au Quiz</title>
     <link rel="stylesheet" href="page_avant_quiz.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
