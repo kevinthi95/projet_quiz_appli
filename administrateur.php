@@ -45,8 +45,11 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
             <button type="submit" class="action-button">Valider</button>
         </form>
         <br>
-        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo htmlspecialchars($user_id); ?>" id="retour-link">Retour à la page principale</a></body>
+         <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
+        
     </div>
+  </body>            
 </html>
 <?php
     exit; // Termine le script pour non-admin
