@@ -119,7 +119,8 @@ if(isset($_SESSION['user_id'])) {
     </div>
     <a href="http://localhost:8888/adminmess.php?id=<?php echo $user_id; ?>">messagerie</a>
     </div>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
+  <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
 </div>
 </body>
 </html>
