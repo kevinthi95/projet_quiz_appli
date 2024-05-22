@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abonnement au Quiz</title>
     <link rel="stylesheet" href="page_avant_abonnement.css">
+        <link rel="stylesheet" href="style.css">
     <style>
         .error-message {
             color: red; // Couleur rouge pour le message d'erreur
