@@ -19,6 +19,7 @@ if(isset($_SESSION['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="projetinfo1.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div id="quiz-container">
