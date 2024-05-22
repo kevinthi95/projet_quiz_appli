@@ -79,6 +79,7 @@ $messages = getMessages($email);
     <?php foreach ($messages as $message): ?>
         <div class="message"><?= htmlspecialchars($message['date']) ?> - <?= htmlspecialchars($message['content']) ?></div>
     <?php endforeach; ?>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
+ <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
 </body>
 </html>
