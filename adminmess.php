@@ -62,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selected_email'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'administration - Messagerie</title>
     <link rel="stylesheet" href="adminmess.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Page d'administration - Messagerie</h1>
