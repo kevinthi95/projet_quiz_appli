@@ -105,7 +105,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['selected_email'])) {
 
     <!-- Ajoutez d'autres fonctionnalités d'administration si nécessaire -->
     <div>
-    <a href="http://localhost:8888/administrateur.php?id=<?php echo $user_id; ?>">Retour à la page d'administrateur</a>
-    <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">Retour à la page principale</a>
+     <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Page Admin! </button>
+         </br>
+     <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
     </body>
 </html>
