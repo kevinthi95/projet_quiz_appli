@@ -90,6 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil de l'utilisateur</title>
     <link rel="stylesheet" href="profil.css">
+        <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
