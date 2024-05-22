@@ -76,7 +76,8 @@ if (!$email || !checkAccess($email)) {
             <p>Prenez votre temps pour répondre à chaque question et essayez d'obtenir le meilleur score possible !</p>
             <a href="http://localhost:8888/projetinfo1.php?id=<?php echo $user_id; ?>" class="styled-button">Commencer le Quiz</a>
         </section>
-        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" class="center-link">Retour à la page principale</a>
+        <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>" >
+    <button id="pickUpButton"> Accueil ! </button>
     </main>
     </body>
 </html>
