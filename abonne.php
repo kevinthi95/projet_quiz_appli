@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abonnés - Informations sur la Formule 1</title>
     <link rel="stylesheet" href="abonne.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <?php
