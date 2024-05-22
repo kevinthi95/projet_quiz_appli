@@ -1,0 +1,32 @@
+#pickUpButton {
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
+    cursor: pointer; /* pour indiquer que c'est un bouton cliquable */
+    margin-left: 20px; /* ajouter une marge à gauche */
+}
+
+#pickUpButton::before {
+    content: '';
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #d80f0f 0%, #f99147 100%);
+    transition: width .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+#pickUpButton:hover::before {
+    width: 9em;
+}
