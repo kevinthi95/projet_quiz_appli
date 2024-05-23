@@ -8,15 +8,10 @@
 </head>
 <body class="fade-in">
 <?php
-// Démarrer la session
 session_start();
-
-// Vérifier si l'ID de l'utilisateur est présent dans la session
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
 } else {
-    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
     header("Location: http://localhost:8888/index.php");
     exit;
 }
@@ -139,7 +134,6 @@ if(isset($_SESSION['user_id'])) {
                                 <td>3</td>
                                 <td>2021, 2022, 2023</td>
                             </tr>
-                            <!-- Ajoutez les autres lignes du tableau ici -->
                         </tbody>
                     </table>
             </div>
@@ -320,7 +314,7 @@ if(isset($_SESSION['user_id'])) {
                             <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Circuit_Yas-Island.svg/800px-Circuit_Yas-Island.svg.png" style="max-width: 200px; filter: grayscale(100%);"></td>
                             <td>60 000</td>
                         </tr>
-                        <!-- Ajouter les autres lignes du tableau -->
+                    
                     </tbody>
                 </table>
         </div>
@@ -335,7 +329,6 @@ if(isset($_SESSION['user_id'])) {
         </div>
     </div>
             
-    <!-- Tableau Pirelli -->
     <div class="table-container">
         <div class="bubble">
             <table class="f1-table centre">
@@ -370,7 +363,7 @@ document.getElementById('backToTopButton').addEventListener('click', function() 
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'smooth'  // Ce paramètre permet un défilement doux
+    behavior: 'smooth'  
   });
 });
     <div class="container-flex ">
