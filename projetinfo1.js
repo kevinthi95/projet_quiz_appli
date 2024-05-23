@@ -312,8 +312,8 @@ const questioncount = document.getElementById('question-count');
 
 let currentQuestion = 0;
 let score = 0;
-let startTime = 0; // Ajoutez une variable pour enregistrer le temps de début
-let pausedTime = 0; // Ajoutez une variable pour enregistrer le temps écoulé lorsque le quiz est en pause
+let startTime = 0; //  enregistrer le temps de début
+let pausedTime = 0; // enregistrer le temps écoulé lorsque le quiz est en pause
 let timerInterval;
 const MAX_QUESTIONS = 20;
 
@@ -327,7 +327,7 @@ function shuffleArray(array) {
 }
 
 function startQuiz() {
-    shuffleArray(quizData); // Mélangez les données du quiz pour la randomisation.
+    shuffleArray(quizData); //randomisation.
     startTime = Date.now(); // Démarrez le chronomètre.
     loadQuiz(); // Chargez la première question.
     startTimer(); // Démarrez le timer pour le quiz.
@@ -335,17 +335,17 @@ function startQuiz() {
 
 function loadQuiz() {
     if (currentQuestion == MAX_QUESTIONS) {
-        showResults(); // Montrez les résultats si le maximum de questions a été atteint.
+        showResults(); // Montrez les résultats si le maximum de questions a été atteint
         return;
     }
 
-    // Continuez seulement si il reste des questions dans le tableau et moins de MAX_QUESTIONS ont été posées.
+    // Continuez seulement si il reste des questions dans le tableau et moins de MAX_QUESTIONS ont été posées
     if (quizData.length > 0) {
         const randomIndex = Math.floor(Math.random() * quizData.length);
         const currentQuizData = quizData[randomIndex];
-        quizData.splice(randomIndex, 1); // Supprimez la question pour éviter les répétitions.
+        quizData.splice(randomIndex, 1); // Sup la question pour éviter les rép
 
-        // Mettez à jour le DOM avec la question et les options.
+        // Mettez à jour le DOM 
         questionElement.innerText = currentQuizData.question;
         optionsElement.innerHTML = '';
         currentQuizData.options.forEach(option => {
@@ -357,13 +357,13 @@ function loadQuiz() {
         });
 
         updateDifficulty(currentQuizData.difficulty);
-        updateRemainingQuestions(); // Mettez à jour l'affichage des questions restantes.
-        currentQuestion++; // Incrémentez le compteur de questions après avoir chargé une question.
+        updateRemainingQuestions(); // Mettez à jour l'affichage des questions restantes
+        currentQuestion++; // Incrémentez le compteur de questions après avoir chargé une question
     }
 }
 
 function checkAnswer(selectedOption, correctAnswer) {
-    clearInterval(timerInterval); // Arrêtez le timer lorsqu'une réponse est sélectionnée.
+    clearInterval(timerInterval); // Arrêtez le timer lorsqu'une réponse est sélectionnée
     if (selectedOption === correctAnswer) {
         score++;
         resultContainer.innerText = 'Bonne réponse!';
@@ -371,7 +371,7 @@ function checkAnswer(selectedOption, correctAnswer) {
         resultContainer.innerText = 'Mauvaise réponse!';
     }
 
-    // Retardez la charge de la prochaine question pour permettre à l'utilisateur de voir la réponse.
+    // Retardez la charge de la prochaine question pour permettre à l'utilisateur de voir la réponse
     if (currentQuestion < MAX_QUESTIONS) {
         loadQuiz();
         startTimer();
@@ -382,16 +382,16 @@ function checkAnswer(selectedOption, correctAnswer) {
 
 function updateDifficulty(difficulty) {
     difficultyElement.className = 'difficulty-circle'; // Reset class
-    difficultyElement.classList.add(`difficulty-${difficulty}`); // Set correct difficulty class
+    difficultyElement.classList.add(`difficulty-${difficulty}`); 
 }
 
 function updateRemainingQuestions() {
-    // Mettez à jour l'élément avec le nombre correct de questions restantes.
+    // Mettez à jour l'élément 
     remainingQuestionsElement.innerText = MAX_QUESTIONS - currentQuestion;
 }
 
 function showResults() {
-    quizContainer.style.display = 'none'; // Cachez le conteneur du quiz.
+    quizContainer.style.display = 'none'; // Cachez le conteneur du quiz
     questioncount.style.display = 'none';
     const elapsedTime = Math.floor((Date.now() - startTime - pausedTime) / 1000);
     const minutes = Math.floor(elapsedTime / 60);
@@ -415,14 +415,14 @@ function updateTimer() {
     document.getElementById('time').innerText = formattedTime;
 }
 
-// Gérer la pause et la reprise du chronomètre lorsque le quiz est en pause
+// Gérer la pause et la reprise du chrono lorsque le quiz est en pause
 document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
-        clearTimeout(timerTimeout); // Si la page est cachée, arrêtez le chronomètre et enregistrez le temps écoulé
+        clearTimeout(timerTimeout); // Si la page est cachée arrêtez le chronomètre et enregistrez le temps écoulé
         pausedTime += Date.now() - startTime;
     } else {
         startTime = Date.now() - pausedTime; // Si la page est visible, enregistrez le nouveau temps de début en ajoutant le temps écoulé
-        startTimer(); // Redémarrez le chronomètre
+        startTimer(); // Redémarrez le chrono
     }
 });
 
