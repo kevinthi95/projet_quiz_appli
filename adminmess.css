@@ -1,11 +1,10 @@
-/* Styles généraux */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #e9ecef; /* Couleur de fond plus douce */
     color: #212529;
     margin: 0;
     padding: 20px;
-    line-height: 1.6; /* Amélioration de l'interligne pour la lisibilité */
+    line-height: 1.6; 
 }
 
 .container {
@@ -13,24 +12,23 @@ body {
     margin: 40px auto;
     background: white;
     padding: 30px;
-    border-radius: 10px; /* Coins plus arrondis */
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05); /* Ombre plus douce */
+    border-radius: 10px; 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05); 
 }
 
 h1, h2 {
-    color: #b81717; /* Couleur distinctive pour les titres */
-    font-size: 2; /* Taille plus grande pour le titre principal */
+    color: #b81717; 
+    font-size: 2; 
     text-align: center;
     margin-bottom: 30px;
 }
 
-/* Mise en forme du formulaire */
 form {
     background-color: #ffffff;
     padding: 25px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
-    transition: all 0.3s; /* Transition douce pour les interactions */
+    transition: all 0.3s; 
 }
 
 label {
@@ -47,22 +45,22 @@ select, textarea, input[type="submit"] {
     border: 1px solid #ced4da;
     border-radius: 5px;
     font-size: 1.1em;
-    transition: all 0.3s; /* Transition douce pour les interactions */
+    transition: all 0.3s;
 }
 
 select:hover, textarea:hover, input[type="submit"]:hover {
-    border-color: #adb5bd; /* Changement de couleur au survol */
+    border-color: #adb5bd; 
 }
 
 input[type="submit"] {
-    background-color: #28a745; /* Couleur verte pour le bouton */
+    background-color: #28a745; 
     color: white;
     font-weight: bold;
     cursor: pointer;
 }
 
 input[type="submit"]:hover {
-    background-color: #218838; /* Vert plus foncé au survol */
+    background-color: #218838; 
 }
 
 ul {
@@ -75,7 +73,7 @@ li {
     padding: 15px;
     border-radius: 5px;
     margin-top: 10px;
-    border-left: 5px solid #b81717; /* Bordure gauche pour plus de style */
+    border-left: 5px solid #b81717; 
 }
 
 a {
@@ -92,5 +90,5 @@ a:hover {
 }
 
 textarea {
-    height: 150px; /* Plus de hauteur pour plus d'espace d'écriture */
+    height: 150px; 
 }
