@@ -35,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     <title>Abonnement au Quiz</title>
     <link rel="stylesheet" href="page_avant_abonnement.css">
         <link rel="stylesheet" href="style.css">
+          <!-- rajouter ici car sinon ça ne fonctionne pas -->
     <style>
         .error-message {
             color: red; // Couleur rouge pour le message d'erreur
