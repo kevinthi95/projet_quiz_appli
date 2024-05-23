@@ -1,5 +1,5 @@
 <?php
-session_start(); // Démarre la session
+session_start(); 
 
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
@@ -7,20 +7,19 @@ if(isset($_SESSION['user_id'])) {
     header("Location: http://localhost:8888/index.php");
     exit;
 }
-
-// Traitement du code d'accès
+//verif code
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     $code = $_POST['code'];
     if ($code === "1234") {
-        $_SESSION['admin'] = true; // L'utilisateur est marqué comme administrateur
-        header("Location: admin_content.php"); // Redirigez vers la page principale de l'administrateur
+        $_SESSION['admin'] = true; 
+        header("Location: admin_content.php"); 
         exit;
     } else {
         $error_message = 'Code incorrect. Veuillez réessayer.';
     }
 }
 
-// Vérifie si l'utilisateur est connecté en tant qu'administrateur
+// utilisateur admin ?
 if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
     include 'admin_content.php'; // Inclure le contenu réservé aux administrateurs
 } else {
@@ -53,6 +52,6 @@ if (isset($_SESSION['admin']) && $_SESSION['admin'] === true) {
   </body>            
 </html>
 <?php
-    exit; // Termine le script pour non-admin
+    exit; 
 }
 ?>
