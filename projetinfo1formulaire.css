@@ -12,7 +12,7 @@ body {
     background-color: #fff;
     padding: 1rem;
     max-width: 350px;
-    width: calc(100% - 2rem);  /* Assure que le formulaire ne dépasse pas les marges horizontales */
+    width: calc(100% - 2rem);  
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     display: flex;
@@ -30,13 +30,13 @@ body {
 }
 
 .input-container {
-    width: 100%; /* Ajuste la largeur des conteneurs d'entrée à la largeur du formulaire */
+    width: 100%; 
     position: relative;
     margin-bottom: 1rem;
 }
 
 .input-container input {
-    width: calc(100% - 2rem); /* Compense pour le padding, évitant le débordement */
+    width: calc(100% - 2rem); 
     padding: 1rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -78,7 +78,7 @@ body {
     }
 
     .input-container input {
-        width: calc(100% - 1rem); /* Ajuste la largeur des inputs sur les petits écrans pour éviter tout débordement */
+        width: calc(100% - 1rem); 
     }
 }
 
