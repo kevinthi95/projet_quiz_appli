@@ -1,9 +1,9 @@
 #noteContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px; /* Augmente l'espacement entre les carrés */
+    gap: 20px; 
     padding: 20px;
-    justify-content: center; /* Centrer les carrés */
+    justify-content: center; 
 }
 
 .note {
@@ -20,23 +20,23 @@
     align-items: center;
     text-align: center;
     cursor: text;
-    overflow: hidden; /* Empêche le texte de sortir du carré */
+    overflow: hidden;
     font-size: 16px;
-    transition: font-size 0.3s ease; /* Transition douce pour la taille du texte */
-    position: relative; /* Assure un bon fonctionnement de la translation */
+    transition: font-size 0.3s ease; 
+    position: relative; 
 }
 
 .agrandi {
     transform: scale(1.5) translateY(15%);
-    font-size: 24px; /* Agrandit le texte avec le carré */
-    padding: 20px; /* Plus de padding pour mieux encadrer le texte agrandi */
+    font-size: 24px; 
+    padding: 20px; 
 }
 a {
     display: inline-block;
     margin-top: 20px;
     padding: 10px;
-    background-color: #007BFF; /* Bleu pour les actions de navigation */
-    color: white; /* Texte en blanc pour le contraste */
-    text-decoration: none; /* Pas de soulignement pour un look plus propre */
-    border-radius: 5px; /* Bords arrondis pour le bouton de retour */
+    background-color: #007BFF; 
+    color: white; 
+    text-decoration: none; 
+    border-radius: 5px; 
 }
