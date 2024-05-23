@@ -3,22 +3,27 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #f0f0f0;
+    background-image: url('140576-tv-news-feature-how-to-watch-f1-in-4k-ultra-hd-image1-mlmba7ehtv.avif'); /* Chemin vers votre image */
+    background-size: cover; 
+    background-position: center; /* Centre l'image sur l'écran */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    background-color: #f0f0f0; /* Couleur de fond en cas de non chargement de l'image */
     margin: 0;
     padding: 0;
 }
 
 .form {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent pour améliorer la lisibilité */
     padding: 1rem;
     max-width: 350px;
-    width: calc(100% - 2rem);  
+    width: calc(100% - 2rem);
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 
 .form-title {
     font-size: 1.25rem;
@@ -30,13 +35,13 @@ body {
 }
 
 .input-container {
-    width: 100%; 
+    width: 100%; /* Ajuste la largeur des conteneurs d'entrée à la largeur du formulaire */
     position: relative;
     margin-bottom: 1rem;
 }
 
 .input-container input {
-    width: calc(100% - 2rem); 
+    width: calc(100% - 2rem); /* Compense pour le padding, évitant le débordement */
     padding: 1rem;
     font-size: 0.875rem;
     line-height: 1.25rem;
@@ -70,16 +75,26 @@ body {
     text-decoration: underline;
 }
 
-// pour tel, a enlever peut etre
-@media (max-width: 400px) {
-    .form {
-        width: 95%;
-        padding: 0.5rem;
-    }
-
-    .input-container input {
-        width: calc(100% - 1rem); 
-    }
+#message-container {
+    display: none;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
 }
+
+.message-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
 
 
