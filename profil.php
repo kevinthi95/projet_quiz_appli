@@ -2,9 +2,9 @@
 session_start(); 
 
 if (!isset($_SESSION['user_id'])) {
-    echo '<p>Vous devez être connecté pour voir cette page.</p>';
+    echo '<div class="message message-error"><p>Vous devez être connecté pour voir cette page.</p>';
     echo '<a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Se connecter</a> ou ';
-    echo '<a href="http://localhost:8888/index.php">Créer un compte</a>';
+    echo '<a href="http://localhost:8888/index.php">Créer un compte</a></div>';
     exit;
 }
 
@@ -18,40 +18,32 @@ function formatPasswordForDisplay($password) {
 $user_id = $_SESSION['user_id'];
 
 $file = 'utilisateurs.txt'; 
-// ichier utilisateurs existe ?
 if (file_exists($file)) {
-
     $lines = file($file);
-    
-    // Parcourt fichier utilisateurs
     foreach ($lines as $line) {
         $columns = explode(';', $line);
-        
-        // Vérifie si l'ID de l'utilisateur correspond à celui stocké dans la session
         if (trim($columns[2]) === $user_id) {
-            $email = trim($columns[0]); // Récup email 
+            $email = trim($columns[0]); 
             break; 
         }
     }
 }
 $annexeFile = 'donnees/' . $email . '.txt';
 
-// Chargement des données 
 if (file_exists($annexeFile)) {
     $userData = file_get_contents($annexeFile);
-    $displayData = $userData; // Copie des données pour l'affichage
+    $displayData = $userData;
     if (preg_match('/Password:\s*(.*)$/m', $userData, $matches)) {
         $passwordDisplay = formatPasswordForDisplay(trim($matches[1]));
         $displayData = str_replace($matches[1], $passwordDisplay, $userData);
     }
 }
 
-// formulaire de mise à jour du mot de passe
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
-    $current_password = (trim($_POST['current_password']));  // Assurez-vous de retirer les espaces
-    $new_password = (trim($_POST['new_password']));  
-    $confirm_password = (trim($_POST['confirm_password']));  
+    $current_password = trim($_POST['current_password']);
+    $new_password = trim($_POST['new_password']);  
+    $confirm_password = trim($_POST['confirm_password']);  
 
     if (file_exists($file)) {
         $lines = file($file);
@@ -61,25 +53,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
                 $stored_password = trim($columns[1]);
                 if ($current_password === $stored_password) {
                     if ($new_password === $confirm_password) {
-                        // Vérifie que le nouveau mot de passe ne contient pas de sous-chaînes de l'email car problème sinon
-                        if (strpos($email, $new_password) === false) {
+                        if ($new_password === $stored_password) {
+                            $message = '<div class="message message-error">Le nouveau mot de passe est identique à l\'ancien.</div>';
+                        } elseif (strpos($email, $new_password) === false) {
                             $line = str_replace($stored_password, $new_password, $line);
                             file_put_contents($file, implode('', $lines));
-                            $message = "Mot de passe mis à jour avec succès.";
+                            $message = '<div class="message message-success">Mot de passe mis à jour avec succès.</div>';
                         } else {
-                            $message = "Le nouveau mot de passe ne doit pas contenir de parties de votre email.";
+                            $message = '<div class="message message-error">Le nouveau mot de passe ne doit pas contenir de parties de votre email.</div>';
                         }
                     } else {
-                        $message = "Les nouveaux mots de passe ne correspondent pas.";
+                        $message = '<div class="message message-error">Les nouveaux mots de passe ne correspondent pas.</div>';
                     }
                 } else {
-                    $message = "Mot de passe actuel incorrect.";
+                    $message = '<div class="message message-error">Mot de passe actuel incorrect.</div>';
                 }
                 break;
             }
         }
     } else {
-        $message = "Le fichier utilisateurs.txt n'existe pas.";
+        $message = '<div class="message message-error">Le fichier utilisateurs.txt n\'existe pas.</div>';
     }
 }
 ?>
@@ -92,6 +85,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
     <title>Profil de l'utilisateur</title>
     <link rel="stylesheet" href="profil.css">
     <link rel="stylesheet" href="style.css">
+    <!-- rajouter ici car sinon ça ne fonctionne pas -->
+    <style>
+    
+        .message {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .message-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -111,7 +127,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
             <input type="password" id="confirm-password" name="confirm_password" required>
             <button type="submit">Mettre à jour</button>
         </form>
-        <?php if (!empty($message)) echo "<p>$message</p>"; ?>
+        <?php if (!empty($message)) echo $message; ?>
     </div>
     <div class="footer">
         <a href="http://localhost:8888/projetinfo1page_principal.php?id=<?php echo $user_id; ?>">
