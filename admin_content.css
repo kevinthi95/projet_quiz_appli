@@ -1,4 +1,3 @@
-/* Styles de base */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f0f0f0;
@@ -18,16 +17,16 @@ body {
 }
 
 h1 {
-    font-family: 'Arial', sans-serif; /* Utilisation d'une police web standard */
-    font-size: 28px; /* Taille de la police */
-    color: red; /* Couleur du texte */
-    text-align: center; /* Centrage du texte */
-    margin-top: 20px; /* Espace au-dessus du titre */
-    margin-bottom: 20px; /* Espace en dessous du titre */
-    padding: 10px; /* Padding autour du texte */
-    background-color: #f8f8f8; /* Couleur de fond derrière le texte */
-    border-radius: 8px; /* Bords arrondis */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre*/
+    font-family: 'Arial', sans-serif; 
+    font-size: 28px; 
+    color: red; 
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+    padding: 10px; 
+    background-color: #f8f8f8; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 
 }
 h2 {
@@ -59,7 +58,7 @@ select, input[type="submit"] {
     box-sizing: border-box;
 }
 .button1 {
-    background-color: #f44336; /* Vert pour les actions positives */
+    background-color: #f44336; 
     color: white;
     padding: 10px 15px;
     border: none;
@@ -71,7 +70,7 @@ select, input[type="submit"] {
  
 
 button {
-    background-color: #4CAF50; /* Vert pour les actions positives */
+    background-color: #4CAF50; 
     color: white;
     padding: 10px 15px;
     border: none;
@@ -106,11 +105,11 @@ button:hover {
     font-size: 16px;
 }
 .message {
-    background-color: #4CAF50; /* Vert succès */
+    background-color: #4CAF50; 
 }
 
 .error {
-    background-color: #f44336; /* Rouge erreur */
+    background-color: #f44336; 
 }
 
 /* Liens */
