@@ -4,6 +4,8 @@ Bienvenue dans notre fantastique application web de quiz sur la Formule 1 !
 
 Pages et Utilisation
 
+Tout les fichiers.css sont associer a lerus fichier php du même nom et assure un coté esthétique a chauqe pâge. De même pour les fichier js qui permettent le bon focntionnement des fichiers php.
+style.css : design du bouton acceuil
 saveResults.php: Page utilisée pour enregistrer les résultats du quiz des utilisateurs.
 projetinfo1formulaireinscrit.php: Page d'identification lorsque l'on a déjà un compte.
 projetinfo1.php: Page de quiz principale avec chronomètre et nombre de questions restantes.
