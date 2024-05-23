@@ -6,6 +6,28 @@
     <title>Formulaire de saisie des informations - Confirmation</title>
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaire.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        #message-container {
+            display: none;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .message-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .message-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
     <script>
         function hideMessageAndRedirect1() {
             var messageContainer = document.getElementById('message-container');
@@ -108,4 +130,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </body>
 </html>
+
 
