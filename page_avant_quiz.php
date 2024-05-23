@@ -1,16 +1,13 @@
 <?php
 session_start();
 
-// Vérifier si l'ID de l'utilisateur est présent dans la session
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
-    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
     header("Location: http://localhost:8888/index.php");
     exit;
 }
 
-// Fonction pour récupérer l'email depuis le fichier utilisateurs.txt basé sur user_id
 function getEmailFromUserId($user_id) {
     $filename = 'utilisateurs.txt';
     if (file_exists($filename)) {
@@ -28,12 +25,12 @@ function getEmailFromUserId($user_id) {
 $email = getEmailFromUserId($user_id);
 
 
-// Vérifier si l'utilisateur a le droit d'accès au quiz
+// Vérifier si l'utilisateur a le droit d'accès 
 function checkAccess($email) {
     $filename = "donnees/" . $email . ".txt";
     if (file_exists($filename)) {
         $lines = file($filename, FILE_IGNORE_NEW_LINES);
-        if (isset($lines[6])) { // La 7ème ligne est indexée par 6
+        if (isset($lines[6])) { 
             $parts = explode(':', $lines[6]);
             if (count($parts) >= 2 && trim($parts[1]) == "non") {
                 return false;
@@ -44,7 +41,6 @@ function checkAccess($email) {
 }
 
 if (!$email || !checkAccess($email)) {
-    // Afficher le message d'erreur et attendre 5 secondes avant la redirection
     echo '<p>Vous n\'êtes pas habilité à accéder au quiz !</p>';
     echo '<p>Redirection automatique dans 5 secondes...</p>';
     header("refresh:5;url=http://localhost:8888/projetinfo1page_principal.php?id=$user_id");
