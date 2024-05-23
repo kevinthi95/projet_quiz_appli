@@ -1,8 +1,7 @@
 <?php
 session_start();
 
-
-if(isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
     header("Location: http://localhost:8888/index.php");
@@ -17,22 +16,114 @@ if(isset($_SESSION['user_id'])) {
     <title>Page de présentation de la Formule 1</title>
     <link rel="stylesheet" href="projetinfo1page_principal.css">
     <link rel="stylesheet" href="style.css">
-  
+    <!-- obligé de mettre le css aussi ici car sinon ne fonctionnent pas -->
+    <style>
+  #menuToggle {
+            display: block;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+        #menuToggle input {
+            display: block;
+            width: 40px;
+            height: 32px;
+            position: absolute;
+            top: -7px;
+            right: -5px;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 2;
+            -webkit-touch-callout: none;
+        }
+        #menuToggle span {
+            display: block;
+            width: 33px;
+            height: 4px;
+            margin-bottom: 5px;
+            position: relative;
+            background: #fff;
+            border-radius: 3px;
+            z-index: 1;
+            transform-origin: 4px 0px;
+            transition: transform 0.25s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.25s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+        }
+        #menuToggle span:first-child {
+            transform-origin: 0% 0%;
+        }
+        #menuToggle span:nth-last-child(2) {
+            transform-origin: 0% 100%;
+        }
+        #menuToggle input:checked ~ span {
+            opacity: 1;
+            transform: rotate(45deg) translate(-2px, -1px);
+            background: #fff;
+        }
+        #menuToggle input:checked ~ span:nth-last-child(3) {
+            opacity: 0;
+            transform: rotate(0deg) scale(0.2, 0.2);
+        }
+        #menuToggle input:checked ~ span:nth-last-child(2) {
+            transform: rotate(-45deg) translate(0, -1px);
+        }
+        #menu {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            background: #000;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            list-style-type: none;
+            padding: 20px;
+            border-radius: 8px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+        #menu li {
+            padding: 10px 0;
+            font-size: 18px;
+        }
+        #menu li a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        #menuToggle input:checked ~ ul {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        #menu a:hover {
+            color: #007BFF;
+        }
+    </style>
 </head>
 <body class="fade-in">
-  <header>
-    <h1>Présentation de la Formule 1</h1>
-    <nav>
-        <ul>
-            <li><a href="http://localhost:8888/page_avant_quiz.php?id=<?php echo $user_id; ?>" >Quiz</a></li>
-            <li><a href= "http://localhost:8888/classement.php?id=<?php echo $user_id; ?>" >Classement</a></li>
-            <li><a href= "http://localhost:8888/profil.php?id=<?php echo $user_id; ?>" >Profil</a></li>
-            <li><a href="http://localhost:8888/administrateur.php?id=<?php echo $user_id; ?>">Admin</a></li>
-            <li><a href="http://localhost:8888/page_avant_abonnement.php?id=<?php echo $user_id; ?>">Abonnement</a></li>
-            <li><a href="http://localhost:8888/messagerie.php?id=<?php echo $user_id; ?>">Messagerie</a></li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <h1>Présentation de la Formule 1</h1>
+        <nav>
+            <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                    <li><a href="http://localhost:8888/page_avant_quiz.php?id=<?php echo $user_id; ?>">Quiz</a></li>
+                    <br>
+                    <li><a href="http://localhost:8888/classement.php?id=<?php echo $user_id; ?>">Classement</a></li>
+                    <li><a href="http://localhost:8888/profil.php?id=<?php echo $user_id; ?>">Profil</a></li>
+                    <li><a href="http://localhost:8888/administrateur.php?id=<?php echo $user_id; ?>">Admin</a></li>
+                    <li><a href="http://localhost:8888/page_avant_abonnement.php?id=<?php echo $user_id; ?>">Abonnement</a></li>
+                    <li><a href="http://localhost:8888/messagerie.php?id=<?php echo $user_id; ?>">Messagerie</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
 <a href="http://localhost:8888/deconnexion.php?id=<?php echo $user_id; ?>" class="logout-button">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
         <path d="M13 3H11V13H13V3ZM12 2C6.5 2 2 6.5 2 12C2 17.5 6.5 22 12 22C17.5 22 22 17.5 22 12C22 6.5 17.5 2 12 2ZM12 20C7.6 20 4 16.4 4 12C4 7.6 7.6 4 12 4C16.4 4 20 7.6 20 12C20 16.4 16.4 20 12 20Z"/>
