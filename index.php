@@ -6,6 +6,7 @@
     <title>Formulaire de saisie des informations - Confirmation</title>
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaire.css">
     <link rel="stylesheet" href="style.css">
+          <!-- rajouter ici car sinon ça ne fonctionne pas -->
     <style>
         #message-container {
             display: none;
