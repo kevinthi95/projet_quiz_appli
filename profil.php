@@ -1,7 +1,7 @@
 <?php
-session_start(); // Démarrage de la session
+session_start(); 
 
-// Vérifier si l'utilisateur est connecté
+
 if (!isset($_SESSION['user_id'])) {
     echo '<p>Vous devez être connecté pour voir cette page.</p>';
     echo '<a href="http://localhost:8888/projetinfo1formulaireinscrit.php">Se connecter</a> ou ';
@@ -13,35 +13,29 @@ function formatPasswordForDisplay($password) {
     if (strlen($password) > 1) {
         return substr($password, 0, 1) . str_repeat('*', strlen($password) - 1);
     }
-    return $password; // Gère le cas peu probable où le mot de passe serait d'un seul caractère
+    return $password; // mdp 1 seul caract
 }
 
 $user_id = $_SESSION['user_id'];
 
-$file = 'utilisateurs.txt'; // Chemin vers le fichier des utilisateurs
-// Vérifie si le fichier des utilisateurs existe
+$file = 'utilisateurs.txt';
 if (file_exists($file)) {
-    // Lit le contenu du fichier des utilisateurs ligne par ligne
     $lines = file($file);
     
-    // Parcourt chaque ligne du fichier des utilisateurs
     foreach ($lines as $line) {
-        // Divise la ligne en colonnes en utilisant le point-virgule comme séparateur
         $columns = explode(';', $line);
         
-        // Vérifie si l'ID de l'utilisateur correspond à celui stocké dans la session
         if (trim($columns[2]) === $user_id) {
-            $email = trim($columns[0]); // Récupère l'email de la première colonne
-            break; // Sort de la boucle après avoir trouvé l'email
+            $email = trim($columns[0]); 
+            break; 
         }
     }
 }
 $annexeFile = 'donnees/' . $email . '.txt';
 
-// Chargement des données utilisateur
 if (file_exists($annexeFile)) {
     $userData = file_get_contents($annexeFile);
-    $displayData = $userData; // Copie des données pour l'affichage
+    $displayData = $userData;
     if (preg_match('/Password:\s*(.*)$/m', $userData, $matches)) {
         $passwordDisplay = formatPasswordForDisplay(trim($matches[1]));
         $displayData = str_replace($matches[1], $passwordDisplay, $userData);
@@ -49,12 +43,12 @@ if (file_exists($annexeFile)) {
 }
 
 
-// Traitement du formulaire de mise à jour du mot de passe
+
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
-    $current_password = strtolower(trim($_POST['current_password']));  // Assurez-vous de retirer les espaces
-    $new_password = strtolower(trim($_POST['new_password']));  // Convertir en minuscules
-    $confirm_password = strtolower(trim($_POST['confirm_password']));  // Convertir en minuscules
+    $current_password = strtolower(trim($_POST['current_password']));  
+    $new_password = strtolower(trim($_POST['new_password']));  
+    $confirm_password = strtolower(trim($_POST['confirm_password'])); 
 
     if (file_exists($file)) {
         $lines = file($file);
