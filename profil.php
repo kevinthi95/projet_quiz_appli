@@ -46,9 +46,9 @@ if (file_exists($annexeFile)) {
 
 $message = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['current_password'])) {
-    $current_password = strtolower(trim($_POST['current_password']));  
-    $new_password = strtolower(trim($_POST['new_password']));  
-    $confirm_password = strtolower(trim($_POST['confirm_password'])); 
+    $current_password = (trim($_POST['current_password']));  
+    $new_password = (trim($_POST['new_password']));  
+    $confirm_password = (trim($_POST['confirm_password'])); 
 
     if (file_exists($file)) {
         $lines = file($file);
