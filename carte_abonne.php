@@ -1,12 +1,10 @@
 <?php
-session_start(); // Démarre la session
+session_start(); 
 
-// Vérifier si l'ID de l'utilisateur est présent dans la session
+
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-    // Utiliser $user_id pour personnaliser le contenu de la page ou pour toute autre fonctionnalité
 } else {
-    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
     header("Location: http://localhost:8888/index.php");
     exit;
 }
@@ -22,7 +20,6 @@ if(isset($_SESSION['user_id'])) {
 </head>
 <body>
     <div id="noteContainer">
-        <!-- Les carrés seront ajoutés ici -->
     </div>
     <button onclick="ajouterCarre()">Ajouter un carré</button>
     <script src="carte_abonne.js"></script>
