@@ -56,6 +56,7 @@ $topResults = array_slice($results, 0, 20);
             <th>Chrono</th>
             <th>Ratio</th>
         </tr>
+        <!-- rajouter ici car sinon ne marche pas  -->
         <?php foreach ($topResults as $result): ?>
             <tr>
                 <td><?php echo htmlspecialchars($result['email']); ?></td>
