@@ -1,9 +1,9 @@
 document.getElementById("loginForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+    event.preventDefault(); // Empêche le formulaire de se soumettre 
 
-    var formData = new FormData(this); // Récupère les données du formulaire
+    var formData = new FormData(this); // Récupère les données 
 
-    // Envoie les données du formulaire au script PHP de vérification
+    // Envoie les données du formulaire au script PHP de vérif
     fetch(this.action, {
         method: this.method,
         body: formData
@@ -11,7 +11,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            window.location.href = "compte_utilisateur.html"; // Redirige vers la page du compte utilisateur
+            window.location.href = "compte_utilisateur.html"; // Redirige vers la page du compte 
         } else {
             document.getElementById("message").innerText = "Adresse e-mail ou mot de passe incorrect.";
         }
