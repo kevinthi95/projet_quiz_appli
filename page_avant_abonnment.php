@@ -57,6 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
         <form method="post" class="subscription-form">
             <label for="code">Entrez le code d'abonnement :</label>
             <input type="password" name="code" id="code" required>
+    <!-- rajouter ici car obligés  -->
             <?php
             if ($error_message !== '') {
                 echo '<div class="error-message">' . $error_message . '</div>';
