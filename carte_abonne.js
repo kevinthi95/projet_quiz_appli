@@ -19,9 +19,9 @@ function ajouterCarre() {
         }
     });
 
-    // Gestionnaire pour agrandir/réduire le carré
+    // agrandir/réduire le carré
     nouvelleNote.addEventListener('click', function() {
-        // Vérifie si le carré est déjà agrandi
+        //  carré est déjà agrandi ?
         if (nouvelleNote.classList.contains('agrandi')) {
             nouvelleNote.classList.remove('agrandi');
         } else {
