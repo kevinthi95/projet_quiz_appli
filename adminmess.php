@@ -1,3 +1,4 @@
+<!-- un peu de php partout mais obligé  -->
 <?php
 session_start(); 
 
