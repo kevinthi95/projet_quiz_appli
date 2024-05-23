@@ -14,7 +14,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* Assurez-vous que la légende est au-dessus du contenu principal */
+    z-index: 1000; 
 }
 
 .legend-item {
@@ -76,23 +76,6 @@ footer {
     text-align: center;
     margin-top: 20px;
 }
-
-.center-link {
-    color: white;
-    background-color: #007bff; 
-    padding: 10px 15px;
-    border-radius: 5px;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-}
-/* Effet au survol */
-.center-link:hover {
-    background-color: #0056b3; /* Bleu un peu plus foncé au survol */
-}
-
 
 .styled-button {
     display: inline-block;
