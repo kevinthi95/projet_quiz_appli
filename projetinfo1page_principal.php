@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de présentation de la Formule 1</title>
     <link rel="stylesheet" href="projetinfo1page_principal.css">
+    <link rel="stylesheet" href="style.css">
+  
 </head>
 <body class="fade-in">
 <?php
 session_start();
+
+
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
@@ -16,7 +20,7 @@ if(isset($_SESSION['user_id'])) {
     exit;
 }
 ?>
-   <header>
+  <header>
     <h1>Présentation de la Formule 1</h1>
     <nav>
         <ul>
@@ -134,6 +138,7 @@ if(isset($_SESSION['user_id'])) {
                                 <td>3</td>
                                 <td>2021, 2022, 2023</td>
                             </tr>
+               
                         </tbody>
                     </table>
             </div>
@@ -314,7 +319,7 @@ if(isset($_SESSION['user_id'])) {
                             <td><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/dc/Circuit_Yas-Island.svg/800px-Circuit_Yas-Island.svg.png" style="max-width: 200px; filter: grayscale(100%);"></td>
                             <td>60 000</td>
                         </tr>
-                    
+           
                     </tbody>
                 </table>
         </div>
@@ -329,6 +334,7 @@ if(isset($_SESSION['user_id'])) {
         </div>
     </div>
             
+
     <div class="table-container">
         <div class="bubble">
             <table class="f1-table centre">
@@ -353,7 +359,9 @@ if(isset($_SESSION['user_id'])) {
             </table>
         </div>
     </div>
-<button class="button" id="backToTopButton">
+
+      <!-- rajouter ici car sinon ça ne fonctionne pas -->
+    <button class="button" id="backToTopButton">
         <svg class="svgIcon" viewBox="0 0 384 512">
             <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
         </svg>
@@ -363,9 +371,10 @@ document.getElementById('backToTopButton').addEventListener('click', function() 
   window.scrollTo({
     top: 0,
     left: 0,
-    behavior: 'smooth'  
+    behavior: 'smooth'  // Cdéfilement doux
   });
 });
+</script>
     <div class="container-flex ">
         <div class="bubble-flex">
             <div class="section-flex">
@@ -381,10 +390,11 @@ document.getElementById('backToTopButton').addEventListener('click', function() 
             </div>
         </div>
     </div>
-    <footer>
+  
+ <footer>
         <p>&copy; 2024 Formule 1. Tous droits réservés.</p>
     </footer>
-    
+
         <script src="projetinfo1page_principal.js"></script>
 </body>
 </html>
