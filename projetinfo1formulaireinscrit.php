@@ -31,6 +31,7 @@
     </style>
 </head>
 <body>
+          <!-- rajouter ici car plus compréhensible  -->
 <?php
 session_start(); // Démarrage de la session
 
