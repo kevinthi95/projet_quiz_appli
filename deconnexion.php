@@ -1,15 +1,14 @@
 <?php
-session_start(); // Démarre la gestion de session
+session_start(); 
 
-// Supprime l'ID utilisateur de la session
+// Supprime id
 if (isset($_SESSION['user_id'])) {
-    unset($_SESSION['user_id']); // Supprime la variable de session
+    unset($_SESSION['user_id']); // Supprime variable 
 }
 
-// Vous pouvez également vouloir détruire toute la session si vous n'utilisez pas d'autres variables de session
+// destruction session
 session_destroy(); 
 
-// Redirection vers la page de connexion ou la page d'accueil
 header('Location: http://localhost:8888/index.php');
 exit;
 ?>
