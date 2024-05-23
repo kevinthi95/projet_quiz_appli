@@ -1,26 +1,25 @@
 <?php
-session_start(); // Démarre la session
+session_start(); 
 
-// Initialiser une variable pour stocker un message d'erreur éventuel
+
 $error_message = '';
 
-// Vérifier si l'ID de l'utilisateur est présent dans la session
+
 if(isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
 } else {
-    // Rediriger l'utilisateur vers la page de connexion s'il n'est pas connecté
     header("Location: index.php");
     exit;
 }
 
-// Vérifie si le code d'abonnement a été soumis
+// Vérifie si code soumis
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
     $code = $_POST['code'];
 
-    // Vérifie si le code d'abonnement est correct
+    // Vérifie si code  correct
     if ($code === "1111") {
         $_SESSION['abonne'] = true; // Marque l'utilisateur comme abonné
-        header("Location: http://localhost:8888/abonne.php?id=$user_id"); // Redirige vers la page réservée aux abonnés
+        header("Location: http://localhost:8888/abonne.php?id=$user_id"); 
         exit;
     } else {
         $error_message = 'Code incorrect. Veuillez réessayer.'; // Stocke le message d'erreur
@@ -70,6 +69,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['code'])) {
 </html>
 
 <?php
-    // Termine le script
     exit;
 ?>
