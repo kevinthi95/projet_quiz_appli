@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abonnés - Informations sur la Formule 1</title>
-    <link rel="stylesheet" href="abonne.css">
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 <?php
 session_start();
 
@@ -18,6 +8,16 @@ if(isset($_SESSION['user_id'])) {
     exit;
 }
 ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abonnés - Informations sur la Formule 1</title>
+    <link rel="stylesheet" href="abonne.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
     <header>
         <h1>Informations sur la Formule 1</h1>
         <nav>
