@@ -77,6 +77,7 @@ if(isset($_SESSION['user_id'])) {
         <form method="post">
             <label for="email-bloquer">Choisir un utilisateur à bloquer:</label>
             <select name="email-bloquer" id="email-bloquer" required>
+                <!-- rajouter ici car sinon ne focntionne pas correctement  -->
             <?php
             $filename = 'utilisateurs.txt';
             if (file_exists($filename)) {
