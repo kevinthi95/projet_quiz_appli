@@ -6,7 +6,7 @@
     <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaireinscrit.css">
     <link rel="stylesheet" href="style.css">
-          <!-- rajouter ici car sinon ça ne fonctionne pas -->
+    <!--encore obligés de le mettre ici je ne comprend pas pourquoi ca ne marche pas dans le css-->
     <style>
         #message {
             display: none;
@@ -15,6 +15,7 @@
             border-radius: 5px;
             text-align: center;
             font-size: 18px;
+            position: relative;
         }
 
         .message-success {
@@ -28,10 +29,26 @@
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
+
+        .loader {
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 10px;
+            right: -30px; /* Adjusted to move the loader further right */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-          <!-- rajouter ici car plus compréhensible  -->
 <?php
 session_start(); // Démarrage de la session
 
@@ -59,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($found) {
             file_put_contents($file, implode('', $updatedLines));
-            echo '<div id="message" class="message-success">Connexion réussie. Redirection dans 3 secondes...</div>';
+            echo '<div id="message" class="message-success">Connexion réussie. Redirection dans 3 secondes...<div class="loader"></div></div>';
             echo '<script>
                     document.getElementById("message").style.display = "block";
                     setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id='.$redirectId.'"; }, 3000);
@@ -67,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $redirectId;
             exit;
         } else {
-            echo '<div id="message" class="message-error">Email non trouvé ou mot de passe incorrect. Redirection dans 5 secondes...</div>';
+            echo '<div id="message" class="message-error">Email non trouvé ou mot de passe incorrect. Redirection dans 5 secondes...<div class="loader"></div></div>';
             echo '<script>
                     document.getElementById("message").style.display = "block";
                     setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; }, 5000);
@@ -75,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     } else {
-        echo '<div id="message" class="message-error">Le fichier des utilisateurs n\'existe pas. Contactez l\'administrateur.</div>';
+        echo '<div id="message" class="message-error">Le fichier des utilisateurs n\'existe pas. Contactez l\'administrateur.<div class="loader"></div></div>';
         echo '<script>document.getElementById("message").style.display = "block";</script>';
     }
 }
@@ -107,6 +124,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </body>
 </html>
+
+
 
 
 
