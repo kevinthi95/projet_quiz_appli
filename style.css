@@ -9,8 +9,8 @@
     overflow: hidden;
     z-index: 1;
     box-shadow: 6px 6px 12px #c5c5c5, -6px -6px 12px #ffffff;
-    cursor: pointer; /* pour indiquer que c'est un bouton cliquable */
-    margin-left: 20px; /* ajouter une marge à gauche */
+    cursor: pointer; 
+    margin-left: 20px; 
 }
 
 #pickUpButton::before {
