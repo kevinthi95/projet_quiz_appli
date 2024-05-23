@@ -9,7 +9,7 @@
 </head>
 <body>
 <?php
-session_start(); // Démarrage de la session
+session_start(); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") { 
     $email = trim($_POST['email']);
