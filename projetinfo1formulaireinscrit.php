@@ -31,20 +31,74 @@
         }
 
         .loader {
-            border: 4px solid #f3f3f3; /* Light grey */
-            border-top: 4px solid #3498db; /* Blue */
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            animation: spin 2s linear infinite;
             position: absolute;
             top: 10px;
-            right: -30px; /* Adjusted to move the loader further right */
+            right: -50px;
+            width: 40px;
+            height: 40px;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .jimu-primary-loading:before,
+        .jimu-primary-loading:after {
+            position: absolute;
+            top: 0;
+            content: '';
+        }
+
+        .jimu-primary-loading:before {
+            left: -19.992px;
+        }
+
+        .jimu-primary-loading:after {
+            left: 19.992px;
+            -webkit-animation-delay: 0.32s !important;
+            animation-delay: 0.32s !important;
+        }
+
+        .jimu-primary-loading:before,
+        .jimu-primary-loading:after,
+        .jimu-primary-loading {
+            background: #076fe5;
+            -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+            animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+            width: 13.6px;
+            height: 32px;
+        }
+
+        .jimu-primary-loading {
+            text-indent: -9999em;
+            margin: auto;
+            position: absolute;
+            right: calc(50% - 6.8px);
+            top: calc(50% - 16px);
+            -webkit-animation-delay: 0.16s !important;
+            animation-delay: 0.16s !important;
+        }
+
+        @-webkit-keyframes loading-keys-app-loading {
+            0%, 80%, 100% {
+                opacity: .75;
+                box-shadow: 0 0 #076fe5;
+                height: 32px;
+            }
+            40% {
+                opacity: 1;
+                box-shadow: 0 -8px #076fe5;
+                height: 40px;
+            }
+        }
+
+        @keyframes loading-keys-app-loading {
+            0%, 80%, 100% {
+                opacity: .75;
+                box-shadow: 0 0 #076fe5;
+                height: 32px;
+            }
+            40% {
+                opacity: 1;
+                box-shadow: 0 -8px #076fe5;
+                height: 40px;
+            }
         }
     </style>
 </head>
@@ -76,7 +130,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($found) {
             file_put_contents($file, implode('', $updatedLines));
-            echo '<div id="message" class="message-success">Connexion réussie. Redirection dans 3 secondes...<div class="loader"></div></div>';
+            echo '<div id="message" class="message-success">Connexion réussie. Redirection dans 3 secondes...
+                    <div class="loader">
+                        <div class="justify-content-center jimu-primary-loading"></div>
+                    </div>
+                  </div>';
             echo '<script>
                     document.getElementById("message").style.display = "block";
                     setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id='.$redirectId.'"; }, 3000);
@@ -84,7 +142,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['user_id'] = $redirectId;
             exit;
         } else {
-            echo '<div id="message" class="message-error">Email non trouvé ou mot de passe incorrect. Redirection dans 5 secondes...<div class="loader"></div></div>';
+            echo '<div id="message" class="message-error">Email non trouvé ou mot de passe incorrect. Redirection dans 5 secondes...
+                    <div class="loader">
+                        <div class="justify-content-center jimu-primary-loading"></div>
+                    </div>
+                  </div>';
             echo '<script>
                     document.getElementById("message").style.display = "block";
                     setTimeout(function() { window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; }, 5000);
@@ -92,7 +154,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit;
         }
     } else {
-        echo '<div id="message" class="message-error">Le fichier des utilisateurs n\'existe pas. Contactez l\'administrateur.<div class="loader"></div></div>';
+        echo '<div id="message" class="message-error">Le fichier des utilisateurs n\'existe pas. Contactez l\'administrateur.
+                <div class="loader">
+                    <div class="justify-content-center jimu-primary-loading"></div>
+                </div>
+              </div>';
         echo '<script>document.getElementById("message").style.display = "block";</script>';
     }
 }
@@ -124,6 +190,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </body>
 </html>
+
 
 
 
