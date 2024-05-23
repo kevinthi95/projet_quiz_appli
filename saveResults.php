@@ -1,15 +1,14 @@
 <?php
 session_start();
 
-// Vérifie si l'utilisateur est connecté et récupère son identifiant
 if (!isset($_SESSION['user_id'])) {
     echo "Utilisateur non connecté";
     exit;
 }
 
 $user_id = $_SESSION['user_id'];
-$email = ''; // Initialisation de l'email
-$file = 'utilisateurs.txt'; // Chemin du fichier utilisateur
+$email = ''; // Initialisation de email
+$file = 'utilisateurs.txt'; // Chemin du fichier 
 
 // Trouver l'email associé à l'utilisateur
 if (file_exists($file)) {
@@ -29,12 +28,12 @@ if ($email == '') {
     exit;
 }
 
-// Récupérer les données POSTées
+// Récupérer les données postée
 $data = json_decode(file_get_contents("php://input"), true);
 $score = (int) $data['score'];
 $timeString = $data['time'];
 
-// Convertir le temps en secondes si nécessaire
+// Convertir le temps en sec si nécessaire
 $timeParts = explode(':', $timeString);
 $timeInSeconds = count($timeParts) === 3 ? ($timeParts[0] * 3600 + $timeParts[1] * 60 + $timeParts[2]) 
               : ($timeParts[0] * 60 + $timeParts[1]);
@@ -48,10 +47,10 @@ if ($score > 16) {
 
 $ratio = $timeInSeconds > 0 ? round((($score * $score) * 100 / $timeInSeconds), 3) : 0;
 
-// Chemin vers le fichier de données de l'utilisateur
+// Chemin vers le fichier de données 
 $annexeFile = 'donnees/' . $email . '.txt';
 
-// Vérifier si des données existent déjà et les mettre à jour si nécessaire
+// Vérifier si des données existent déjà et mettre à jour si nécessaire
 if (file_exists($annexeFile)) {
     $contents = file_get_contents($annexeFile);
     if (preg_match('/Score: (\d+)\/20, Time: ([^,]+), Ratio: ([\d\.]+)/', $contents, $matches)) {
