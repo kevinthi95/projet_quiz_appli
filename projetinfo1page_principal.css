@@ -6,11 +6,9 @@ body {
 }
 
 h2 {
-    color: red; /* Change la couleur du texte en rouge */
+    color: red; 
 }
 
-
-/* Styles pour les bulles */
 .bubble {
     background-color: #dddddd;
     border-radius: 20px;
@@ -19,14 +17,12 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Styles des textes */
 .text {
     text-align: center;
     font-size: 20px;
     margin-bottom: 20px;
 }
 
-/* Styles des tableaux */
 .table-container {
     text-align: center;
     margin: 0 auto 20px auto;
@@ -38,16 +34,14 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: rgb(212, 0, 0); /* Fond blanc pour le pied de page */
-    padding: 5px; /* Espacement interne pour le contenu du pied de page */
-    text-align: center; /* Centrer le texte à l'intérieur du pied de page */
-    border-top: 1px solid #ddd; /* Ajoute une bordure supérieure */
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère sous le pied de page */
-    z-index: 999; /* Assure que le pied de page reste au-dessus du contenu */
+    background-color: rgb(212, 0, 0); 
+    padding: 5px; 
+    text-align: center; 
+    border-top: 1px solid #ddd; 
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 999; 
 }
 
-
-/* Styles des contenus */
 .container {
     margin: 20px auto;
     max-width: 800px;
@@ -69,7 +63,6 @@ footer {
     line-height: 1.6;
 }
 
-/* Styles des tableaux */
 table {
     border-collapse: collapse;
     margin: 20px auto;
@@ -79,40 +72,36 @@ table {
 caption {
     font-weight: bold;
     margin-bottom: 10px;
-    text-align: center; /* Centrage du titre */
+    text-align: center; 
 }
 
 th, td {
-    border: 1px solid #ddd; /* Changement de couleur de la bordure */
+    border: 1px solid #ddd; 
     padding: 12px;
     text-align: center;
-    transition: background-color 0.3s ease; /* Transition pour l'effet de survol */
+    transition: background-color 0.3s ease; 
 }
 
 th {
-    background-color: #444; /* Couleur de fond légèrement plus foncée */
-    color: #fff; /* Couleur du texte */
+    background-color: #444; 
+    color: #fff; 
     font-weight: bold;
 }
 
-/* Styles pour les lignes impaires */
 tr:nth-child(odd) {
-    background-color: #f9f9f9; /* Couleur de fond légèrement différente */
+    background-color: #f9f9f9; 
 }
 
-/* Styles pour les cellules des images */
 table img {
     display: block;
-    margin: 0 auto; /* Centrage des images */
-    max-width: 100%; /* Ajustement de la taille des images */
+    margin: 0 auto; 
+    max-width: 100%; 
 }
 
-/* Effet d'assombrissement au survol des cellules de tableau */
 td:hover {
-    background-color: rgba(0, 0, 0, 0.05); /* Couleur de fond légèrement assombrie */
+    background-color: rgba(0, 0, 0, 0.05); 
 }
 
-/* Styles généraux */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -153,10 +142,10 @@ nav ul li a {
 }
 
 .section-flex {
-    flex-basis: 48%; /* Changer la largeur des sections */
+    flex-basis: 48%; 
     padding: 20px;
 }
-/* Styles pour les bulles avec Flexbox */
+
 .bubble-flex {
     display: flex;
     background-color: #dddddd;
@@ -166,12 +155,10 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
-/* Style pour le titre des bulles */
 .bubble-flex h2 {
     margin-top: 0;
 }
 
-/* Style pour le contenu des bulles */
 .bubble-flex p {
     margin-bottom: 10px;
 }
@@ -184,7 +171,6 @@ img {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Styles pour l'animation de fondu */
 .fade-in {
     animation: fadeIn 3s ease-out;
 }
@@ -198,7 +184,6 @@ img {
     }
 }
 
-/* Nouvelle animation de glissement */
 .slide-in {
     animation: slideIn 2s ease-out;
 }
@@ -269,17 +254,17 @@ img {
   }
   
 ::-webkit-scrollbar {
-    width: 12px; /* largeur de la barre de défilement */
-    background-color: rgba(0,0,0,0.1); /* couleur de fond de la barre */
+    width: 12px;
+    background-color: rgba(0,0,0,0.1); 
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 6px; /* arrondir les angles de la partie déroulante */
-    background-color: #666; /* couleur de la partie déroulante */
+    border-radius: 6px; 
+    background-color: #666; 
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background-color: #555; /* couleur au survol */
+    background-color: #555; 
 }
 .comic-button {
     display: inline-block;
