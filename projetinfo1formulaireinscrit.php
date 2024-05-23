@@ -6,6 +6,7 @@
     <title>Connexion</title>
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaireinscrit.css">
     <link rel="stylesheet" href="style.css">
+          <!-- rajouter ici car sinon ça ne fonctionne pas -->
     <style>
         #message {
             display: none;
