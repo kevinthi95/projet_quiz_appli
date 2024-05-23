@@ -6,7 +6,7 @@
     <title>Formulaire de saisie des informations - Confirmation</title>
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaire.css">
     <link rel="stylesheet" href="style.css">
-          <!-- rajouter ici car sinon ça ne fonctionne pas -->
+    <!--ne fonctionne pas dans le css-->
     <style>
         #message-container {
             display: none;
@@ -15,6 +15,7 @@
             border-radius: 5px;
             text-align: center;
             font-size: 18px;
+            position: relative;
         }
 
         .message-success {
@@ -27,6 +28,77 @@
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
+        }
+
+        .loader {
+            position: absolute;
+            top: 10px;
+            right: -50px; 
+            width: 40px;
+            height: 40px;
+        }
+
+        .jimu-primary-loading:before,
+        .jimu-primary-loading:after {
+            position: absolute;
+            top: 0;
+            content: '';
+        }
+
+        .jimu-primary-loading:before {
+            left: -19.992px;
+        }
+
+        .jimu-primary-loading:after {
+            left: 19.992px;
+            -webkit-animation-delay: 0.32s !important;
+            animation-delay: 0.32s !important;
+        }
+
+        .jimu-primary-loading:before,
+        .jimu-primary-loading:after,
+        .jimu-primary-loading {
+            background: #076fe5;
+            -webkit-animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+            animation: loading-keys-app-loading 0.8s infinite ease-in-out;
+            width: 13.6px;
+            height: 32px;
+        }
+
+        .jimu-primary-loading {
+            text-indent: -9999em;
+            margin: auto;
+            position: absolute;
+            right: calc(50% - 6.8px);
+            top: calc(50% - 16px);
+            -webkit-animation-delay: 0.16s !important;
+            animation-delay: 0.16s !important;
+        }
+
+        @-webkit-keyframes loading-keys-app-loading {
+            0%, 80%, 100% {
+                opacity: .75;
+                box-shadow: 0 0 #076fe5;
+                height: 32px;
+            }
+            40% {
+                opacity: 1;
+                box-shadow: 0 -8px #076fe5;
+                height: 40px;
+            }
+        }
+
+        @keyframes loading-keys-app-loading {
+            0%, 80%, 100% {
+                opacity: .75;
+                box-shadow: 0 0 #076fe5;
+                height: 32px;
+            }
+            40% {
+                opacity: 1;
+                box-shadow: 0 -8px #076fe5;
+                height: 40px;
+            }
         }
     </style>
     <script>
@@ -49,7 +121,6 @@
 </head>
 
 <body>
-    <!-- rajouter ici car plus compréhensible  -->
 <?php
 session_start();
 
@@ -62,7 +133,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         foreach ($lines as $line) {
             $columns = explode(';', $line);
             if (strtolower(trim($columns[0])) === $email) {
-                echo '<div id="message-container" class="message-error">Vous êtes déjà inscrit.</div>';
+                echo '<div id="message-container" class="message-error">Vous êtes déjà inscrit.
+                        <div class="loader">
+                            <div class="justify-content-center jimu-primary-loading"></div>
+                        </div>
+                      </div>';
                 echo '<script>document.getElementById("message-container").style.display = "block"; hideMessageAndRedirect1();</script>';
                 exit;
             }
@@ -95,7 +170,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $_SESSION['user_id'] = $user_id;
 
-    echo '<div id="message-container" class="message-success">Merci! Vos informations ont été enregistrées avec succès. Vous allez être redirigé.</div>';
+    echo '<div id="message-container" class="message-success">Merci! Vos informations ont été enregistrées avec succès. Vous allez être redirigé.
+            <div class="loader">
+                <div class="justify-content-center jimu-primary-loading"></div>
+            </div>
+          </div>';
     echo '<script>document.getElementById("message-container").style.display = "block"; hideMessageAndRedirect2("' . $user_id . '");</script>';
 }
 ?>
@@ -132,5 +211,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </body>
 </html>
-
 
