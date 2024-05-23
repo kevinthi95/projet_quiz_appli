@@ -7,20 +7,20 @@
     <link rel="stylesheet" type="text/css" href="projetinfo1formulaire.css">
     <link rel="stylesheet" href="style.css">
     <script>
-        // Fonction pour masquer le message après quelques secondes et rediriger
+        // Fonction pour masquer le message après quelques secondes et rediriger, focntionne !
         function hideMessageAndRedirect1() {
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; // Redirection vers la page principale
+                window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php"; 
             }, 5000); // 5000 ms = 5 secondes
         }
 
-        function hideMessageAndRedirect2(userId) {//pas la bonne methode je pense
+        function hideMessageAndRedirect2(userId) {//pas la bonne methode je pense, fonctionne moyennement
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
                 messageContainer.style.display = 'none';
-                window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id=" + userId; // Redirection vers la page principale avec l'ID utilisateur
+                window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id=" + userId; 
             }, 5000); // 5000 ms = 5 secondes
         }
     </script>
@@ -28,18 +28,17 @@
 
 <body>
     <?php
-// Démarrer la session
 session_start();
 
-// Vérifie si le formulaire a été soumis
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupère l'e-mail soumis dans le formulaire
+    // Récup l'e-mail 
     $email = strtolower(trim($_POST['email']));
 
-    // Vérifie si le fichier des utilisateurs existe
+    //  fichier utilisateurs existe
     $file = 'utilisateurs.txt';
     if (file_exists($file)) {
-        // Lit chaque ligne du fichier utilisateurs.txt
+        // Lit chaque ligne de utilisateurs.txt
         $lines = file($file);
 
         // Parcourt chaque ligne
@@ -51,13 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (strtolower(trim($columns[0])) === $email) {
                 // Affiche le message d'inscription déjà existante
                 echo '<div id="message-container">Vous êtes déjà inscrit.</div>';
-                echo '<script>hideMessageAndRedirect1()</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
-                exit; // Arrête l'exécution du reste de la page
+                echo '<script>hideMessageAndRedirect1()</script>'; 
+                exit; 
             }
         }
     }
 
-    // Récupère les autres données du formulaire
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $password = $_POST['password'];
@@ -65,43 +63,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pays = $_POST['pays'];
     $passions = $_POST['passions'];
 
-    // Générer un identifiant unique
-    $user_id = uniqid(); // Définition de $user_id ici
+    $user_id = uniqid(); // Définition de $user_id ici id unique
 
-    // Formatte les données pour les enregistrer dans un fichier texte
+    // Formatte les données pour fichier texte
     $data = "$email;" . (trim($password)) . ";$user_id\n";
 
-    // Enregistre les autres informations dans un fichier annexe
+    // Enregistre les autres infos dans un fichier annexe
     $annexeData = "Nom:$nom\nPrénom:$prenom\nAdresse e-mail:$email\nÂge:$age\nPays:$pays\nPassions: $passions\nAccès:oui\n";
 
-    // Nom du fichier pour les autres informations
+    // Nom des fichiers pour les autres infos
     $annexeFile = 'donnees/' . $email . '.txt'; // Utilise $user_id comme nom de fichier
     $messagesFile = 'message/' . $email . '.txt';
 
     // Ouvre le fichier en mode écriture
     $fp = fopen($file, 'a');
 
-    // Écrit les données dans le fichier
     fwrite($fp, $data);
 
-    // Ferme le fichier
     fclose($fp);
 
-    // Crée le fichier email.txt s
+    // fait pareil pour message
     $messagesFp = fopen($messagesFile, 'w');
     fclose($messagesFp);
-
-    // Enregistre les autres informations dans le fichier annexe
+// enregistre infos
     $annexeFp = fopen($annexeFile, 'w');
     fwrite($annexeFp, $annexeData);
     fclose($annexeFp);
 
-    // Stocker l'ID de l'utilisateur dans une variable de session
+    // Stocker id dans une variable de session
     $_SESSION['user_id'] = $user_id; // $user_id est l'ID généré pour l'utilisateur 
 
     // Affiche le message de confirmation
     echo '<div id="message-container">Merci! Vos informations ont été enregistrées avec succès. Vous allez être redirigé</div>';
-    echo '<script>hideMessageAndRedirect2("' . $user_id . '")</script>'; // Appelle la fonction pour masquer le formulaire et le message, puis rediriger
+    echo '<script>hideMessageAndRedirect2("' . $user_id . '")</script>'; 
 }
 ?>
 
