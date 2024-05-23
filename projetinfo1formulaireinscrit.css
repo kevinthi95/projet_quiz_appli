@@ -1,29 +1,39 @@
 body {
-    display: grid;
-    place-items: center;
-    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url('140576-tv-news-feature-how-to-watch-f1-in-4k-ultra-hd-image1-mlmba7ehtv.avif'); /* Chemin vers votre image */
+    background-size: cover; 
+    background-position: center; /* Centre l'image sur l'écran */
+    background-repeat: no-repeat; /* Empêche l'image de se répéter */
+    background-color: #f0f0f0; /* Couleur de fond en cas de non chargement de l'image */
     margin: 0;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    padding: 0;
 }
 
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
+.form {
+    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent pour améliorer la lisibilité */
+    padding: 1rem;
+    max-width: 350px;
+    width: calc(100% - 2rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+/* Autres styles restent inchangés */
 
 h1 {
     text-align: center;
-    border-bottom: 2px solid #4caf50; 
+    border-bottom: 2px solid #4caf50; /* Ajoute une bordure en bas */
     padding-bottom: 10px;
     font-family: "Arial Black", sans-serif; 
-    background-color: #f0f0f0; 
+    background-color: #f0f0f0; /* Ajoute un fond gris clair */
     padding: 10px;
-    background: linear-gradient(to right, #4caf50, #007bff); 
-    color: white; 
+    background: linear-gradient(to right, #4caf50, #007bff); /* Utilise un dégradé de vert à bleu */
+    color: white; /* Change la couleur du texte en blanc pour contraster */
     padding: 10px;
 }
 
@@ -60,39 +70,50 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: #4b0082; /* Change la couleur des liens visités en violet */
+}
 
 p {
     margin-top: 20px;
     text-align: center;
     color: #888;
 }
-
+/* Style pour le message container */
 #message-container {
-    background-color: #f8d7da; 
-    color: #721c24; 
-    padding: 10px 15px; 
-    border-radius: 5px; 
-    margin-bottom: 20px; 
+    background-color: #f8d7da; /* Couleur de fond */
+    color: #721c24; /* Couleur du texte */
+    padding: 10px 15px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins arrondis */
+    margin-bottom: 20px; /* Marge inférieure */
 }
 
+/* Style pour le message de succès */
 #message-container.success {
-    background-color: #d4edda; 
-    color: #155724;
+    background-color: #d4edda; /* Couleur de fond pour succès */
+    color: #155724; /* Couleur du texte pour succès */
 }
 
+/* Style pour le message d'erreur */
 #message-container.error {
-    background-color: #f8d7da; 
-    color: #721c24; 
+    background-color: #f8d7da; /* Couleur de fond pour erreur */
+    color: #721c24; /* Couleur du texte pour erreur */
 }
 
+/* Style pour le lien */
 #message-container a {
-    color: #155724; 
-    text-decoration: underline; 
-    cursor: pointer; 
+    color: #155724; /* Couleur du lien */
+    text-decoration: underline; /* Soulignement du lien */
+    cursor: pointer; /* Curseur au survol du lien */
 }
 
+/* Style pour le lien au survol */
 #message-container a:hover {
-    color: #0d3a13; 
+    color: #0d3a13; /* Couleur du lien au survol */
 }
 .form {
     background-color: #fff;
@@ -174,4 +195,24 @@ p {
   
   .signup-link a {
     text-decoration: underline;
+  }
+  #message {
+      display: none;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 18px;
+  }
+
+  .message-success {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+  }
+
+  .message-error {
+      background-color: #f8d7da;
+      color: #721c24;
+      border: 1px solid #f5c6cb;
   }
