@@ -1,7 +1,6 @@
 <?php
-session_start(); // Démarre la session
+session_start(); 
 
-// Rediriger l'utilisateur si non connecté
 if (!isset($_SESSION['user_id'])) {
     header("Location: index.php");
     exit;
@@ -9,7 +8,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'];
 
-// Fonction pour récupérer l'email associé à un user_id
 function getEmailFromUserId($user_id) {
     $userFile = 'utilisateurs.txt';
     if (file_exists($userFile)) {
@@ -21,12 +19,11 @@ function getEmailFromUserId($user_id) {
             }
         }
     }
-    return null; // Retourne null si aucun email correspondant n'est trouvé
+    return null; 
 }
 
 $email = getEmailFromUserId($user_id);
 
-// Fonction pour récupérer les messages de l'utilisateur
 function getMessages($email) {
     $filename = 'message/' . $email . '.txt';
     if (file_exists($filename)) {
@@ -41,7 +38,6 @@ function getMessages($email) {
     return array();
 }
 
-// Fonction pour enregistrer un nouveau message de l'utilisateur
 function saveMessage($email, $message) {
     $filename = 'message/' . $email . '.txt';
     date_default_timezone_set('Europe/Paris');
@@ -50,7 +46,6 @@ function saveMessage($email, $message) {
     file_put_contents($filename, $formattedMessage . PHP_EOL, FILE_APPEND);
 }
 
-// Traitement du formulaire
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['message'])) {
     $message = $_POST['message'];
     saveMessage($email, $message);
