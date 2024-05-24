@@ -105,7 +105,6 @@
         function hideMessageAndRedirect1() {
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
-                messageContainer.style.display = 'none';
                 window.location.href = "http://localhost:8888/projetinfo1formulaireinscrit.php";
             }, 5000);
         }
@@ -113,8 +112,13 @@
         function hideMessageAndRedirect2(userId) {
             var messageContainer = document.getElementById('message-container');
             setTimeout(function() {
-                messageContainer.style.display = 'none';
                 window.location.href = "http://localhost:8888/projetinfo1page_principal.php?id=" + userId;
+            }, 5000);
+        }
+
+        function hideMessageAndRedirect3() {
+            setTimeout(function() {
+                window.location.href = "http://localhost:8888/index.php";
             }, 5000);
         }
     </script>
@@ -126,6 +130,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = strtolower(trim($_POST['email']));
+    $password = trim($_POST['password']);
     $file = 'utilisateurs.txt';
 
     if (file_exists($file)) {
@@ -144,9 +149,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
+    if (strpos($email, $password) !== false) {
+        echo '<div id="message-container" class="message-error">Le mot de passe ne doit pas contenir de parties de votre email.
+                <div class="loader">
+                    <div class="justify-content-center jimu-primary-loading"></div>
+                </div>
+              </div>';
+        echo '<script>
+                document.getElementById("message-container").style.display = "block";
+                hideMessageAndRedirect3();
+              </script>';
+        exit;
+    }
+
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
-    $password = $_POST['password'];
     $age = $_POST['age'];
     $pays = $_POST['pays'];
     $passions = $_POST['passions'];
