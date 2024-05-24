@@ -50,7 +50,7 @@ button:hover {
     background-color: #45a049;
 }
 
-/* pour les messages */
+
 .message, .error {
     margin-top: 20px;
     padding: 10px;
@@ -64,7 +64,7 @@ button:hover {
 }
 
 .error {
-    background-color: #f44336; /* Rouge erreur */
+    background-color: #f44336; 
 }
 
 a {
@@ -77,17 +77,17 @@ a:hover {
 }
 
 a#retour-link {
-    color: white; /* Texte en blanc */
-    background-color: #007bff; /* Fond bleu */
-    padding: 12px 20px; /* Padding généreux pour un look de bouton */
-    border-radius: 6px; /* Coins arrondis */
-    display: inline-block; /* Permet d'appliquer le padding et d'autres styles de bloc */
-    text-decoration: none; /* Pas de soulignement */
-    font-weight: bold; /* Texte en gras */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
-    transition: background-color 0.3s; /* Transition pour un effet de survol doux */
+    color: white; 
+    background-color: #007bff; 
+    padding: 12px 20px; 
+    border-radius: 6px; 
+    display: inline-block; 
+    text-decoration: none; 
+    font-weight: bold; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+    transition: background-color 0.3s; 
 }
 
 a#retour-link:hover {
-    background-color: #0056b3; /* Bleu un peu plus foncé au survol */
+    background-color: #0056b3; 
 }
