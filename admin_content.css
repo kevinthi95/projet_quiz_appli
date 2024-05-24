@@ -20,7 +20,7 @@ h1 {
     font-family: 'Arial', sans-serif; 
     font-size: 28px; 
     color: red; 
-    text-align: center; 
+    text-align: center;
     margin-top: 20px; 
     margin-bottom: 20px; 
     padding: 10px; 
@@ -34,8 +34,6 @@ h2 {
     text-align: center;
 }
 
-
-/* Formulaires et sélecteurs */
 form {
     margin-top: 20px;
     padding: 20px;
@@ -58,7 +56,7 @@ select, input[type="submit"] {
     box-sizing: border-box;
 }
 .button1 {
-    background-color: #f44336; 
+    background-color: #f44336; /* Vert pour les actions positives */
     color: white;
     padding: 10px 15px;
     border: none;
@@ -112,4 +110,10 @@ button:hover {
     background-color: #f44336; 
 }
 
+
+
+a:hover {
+    background-color: #0056b3;
+    text-decoration: underline;
+}
 
