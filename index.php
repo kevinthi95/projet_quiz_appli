@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="style.css">
     <!--ne fonctionne pas dans le css-->
     <style>
+        .hidden {
+            display: none;
+        }
+
         #message-container {
             display: none;
             padding: 15px;
@@ -127,6 +131,7 @@
 <body>
 <?php
 session_start();
+$formHidden = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
@@ -186,17 +191,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     fclose($annexeFp);
 
     $_SESSION['user_id'] = $user_id;
+    $formHidden = true;
+    
+
+    $_SESSION['user_id'] = $user_id;
+    $formHidden = true;    
 
     echo '<div id="message-container" class="message-success">Merci! Vos informations ont été enregistrées avec succès. Vous allez être redirigé.
             <div class="loader">
                 <div class="justify-content-center jimu-primary-loading"></div>
             </div>
-          </div>';
-    echo '<script>document.getElementById("message-container").style.display = "block"; hideMessageAndRedirect2("' . $user_id . '");</script>';
+        </div>';
+echo '<script>document.getElementById("message-container").style.display = "block"; hideMessageAndRedirect2("' . $user_id . '");</script>';
 }
 ?>
 
-<div class="form-container">
+<div class="form-container <?php echo $formHidden ? 'hidden' : ''; ?>">
     <form class="form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <p class="form-title">Nouveau compte</p>
         <div class="input-container">
@@ -228,4 +238,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </div>
 </body>
 </html>
-
