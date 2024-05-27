@@ -11,7 +11,7 @@ document.getElementById("loginForm").addEventListener("submit", function(event) 
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            window.location.href = "compte_utilisateur.html"; // Redirige vers la page du compte 
+            window.location.href = "projetinfo1page_principal.html"; // Redirige vers la page du compte 
         } else {
             document.getElementById("message").innerText = "Adresse e-mail ou mot de passe incorrect.";
         }
